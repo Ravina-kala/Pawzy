@@ -25,7 +25,7 @@
 
   // WhatsApp helper
   const waBase = 'https://wa.me/91';
-  const defaultPhone = ''; // Optional: set your business number like '9876543210'
+  const defaultPhone = '9138421314'; // Optional: set your business number like '9876543210'
 
   function waLink(payload){
     const txt = encodeURIComponent(payload);
