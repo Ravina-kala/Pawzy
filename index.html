@@ -1,66 +1,233 @@
 <!-- =============================
-<p data-i18n="testi_3">“They handled the vet visit end-to-end. Stress-free.”</p>
-<cite>— Meera, Ulwe</cite>
-</blockquote>
-</div>
-</div>
-</section>
+ Project: Petopia (Mobile-first)
+ Files: index.html, style.css, app.js
+ Note: Copy each section into its own file with the same names.
+============================== -->
 
+<!-- =============================
+ index.html
+============================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Petopia — Complete pet care at your doorstep. Dog walking, grooming, and vet accompany in Kharghar, Panvel, and Ulwe." />
+  <meta property="og:title" content="Petopia" />
+  <meta property="og:description" content="Complete pet care at your doorstep." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <title>Petopia • Complete pet care at your doorstep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <!-- Floating WhatsApp (always visible) -->
+  <a id="whatsapp-float" class="btn-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.18c-.29-.14-1.68-.83-1.94-.92-.26-.1-.45-.14-.64.14-.19.29-.73.92-.9 1.11-.16.19-.33.21-.62.07-.29-.14-1.2-.44-2.29-1.41-.85-.76-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.59.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.49-.64-.49-.16 0-.36-.02-.55-.02s-.5.07-.76.36c-.26.29-1 1-1 2.43 0 1.43 1.02 2.81 1.17 3 .14.19 2 3.06 4.83 4.29.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.68-.69 1.92-1.36.24-.67.24-1.25.17-1.36-.07-.11-.26-.17-.55-.31zM16.02 3.2C9.46 3.2 4.16 8.5 4.16 15.05c0 2.64.86 5.08 2.31 7.05L5.5 28.8l6.89-1.81c1.9 1.04 4.08 1.64 6.42 1.64 6.56 0 11.86-5.3 11.86-11.86S22.58 3.2 16.02 3.2z"/></svg>
+  </a>
 
-<!-- Booking Form / Contact -->
-<section class="section" id="contact">
-<div class="container">
-<h3 class="section-title" data-i18n="contact_title">Book now</h3>
-<form id="book-form" class="form" novalidate>
-<div class="grid form-grid">
-<label>
-<span data-i18n="form_name">Your name</span>
-<input type="text" name="name" required placeholder="e.g., Neha" />
-</label>
-<label>
-<span data-i18n="form_phone">Phone (WhatsApp)</span>
-<input type="tel" name="phone" inputmode="tel" required placeholder="10-digit number" pattern="[0-9]{10}" />
-</label>
-<label>
-<span data-i18n="form_locality">Locality</span>
-<select name="locality" required>
-<option>Kharghar</option>
-<option>Panvel</option>
-<option>Ulwe</option>
-</select>
-</label>
-<label>
-<span data-i18n="form_service">Service</span>
-<select name="service" required>
-<option value="Walking" data-i18n="svc_walk_title">Dog Walking</option>
-<option value="Grooming" data-i18n="svc_groom_title">Grooming at Home</option>
-<option value="Vet Accompany" data-i18n="svc_vet_title">Vet Accompany</option>
-</select>
-</label>
-<label>
-<span data-i18n="form_pet_size">Pet size</span>
-<select name="size" required>
-<option>Small</option>
-<option>Medium</option>
-<option>Large</option>
-</select>
-</label>
-<label>
-<span data-i18n="form_time">Preferred time</span>
-<input type="time" name="time" required />
-</label>
-</div>
-<button class="btn" type="submit" data-i18n="form_submit">Send on WhatsApp</button>
-<p id="form-status" class="form-status" aria-live="polite"></p>
-</form>
-</div>
-</section>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="https://images.unsplash.com/photo-1558944351-cd1d211f9d51?q=80&w=300&auto=format&fit=crop" alt="Petopia logo" class="logo"/>
+        <div>
+          <h1 class="brand-title" data-i18n="brand">Petopia</h1>
+          <p class="brand-tag" data-i18n="tagline">Complete pet care at your doorstep</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="navmenu">☰</button>
+        <ul id="navmenu" class="nav-list">
+          <li><a href="#services" data-i18n="nav_services">Services</a></li>
+          <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
+          <li><a href="#why" data-i18n="nav_why">Why Us</a></li>
+          <li><a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch">
+        <label for="lang" class="visually-hidden">Language</label>
+        <select id="lang" aria-label="Language selector">
+          <option value="en">English</option>
+          <option value="hi">हिंदी</option>
+          <option value="mr">मराठी</option>
+        </select>
+      </div>
+    </div>
+  </header>
 
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h2 data-i18n="hero_title">Happy walks. Healthy pets. Hassle-free for you.</h2>
+        <p data-i18n="hero_sub">Serving Kharghar, Panvel, and Ulwe with reliable walking, grooming, and vet accompany.</p>
+        <div class="hero-cta">
+          <label for="locality" class="visually-hidden">Locality</label>
+          <select id="locality" class="select">
+            <option>Kharghar</option>
+            <option>Panvel</option>
+            <option>Ulwe</option>
+          </select>
+          <a class="btn" id="cta-book" data-i18n="cta_book">Book a walk</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="https://images.unsplash.com/photo-1558944351-cd1d211f9d51?q=80&w=1200&auto=format&fit=crop" alt="Owner walking a happy dog"/>
+      </div>
+    </div>
+  </section>
 
-<footer class="site-footer">
-<div class="container footer-inner">
-<p>© <span id="year"></span> Petopia • <span data-i18n="footer_local">Kharghar • Panvel • Ulwe</span></p>
-</div>
-</footer>
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="container">
+      <h3 class="section-title" data-i18n="services_title">Services</h3>
+      <div class="grid cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=800&auto=format&fit=crop" alt="Dog walking" />
+          <h4 data-i18n="svc_walk_title">Dog Walking</h4>
+          <p data-i18n="svc_walk_text">Daily, weekly, or on-demand walks with GPS check-in and photo updates.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1601758124499-1b7b0b2d0c44?q=80&w=800&auto=format&fit=crop" alt="Grooming" />
+          <h4 data-i18n="svc_groom_title">Grooming at Home</h4>
+          <p data-i18n="svc_groom_text">Bath, brush, nails, and ear cleaning at your doorstep.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1596495578065-8f3b54d2a1b9?q=80&w=800&auto=format&fit=crop" alt="Vet accompany" />
+          <h4 data-i18n="svc_vet_title">Vet Accompany</h4>
+          <p data-i18n="svc_vet_text">We accompany your pet to the vet, manage queues, and keep you updated.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section section-alt" id="pricing">
+    <div class="container">
+      <h3 class="section-title" data-i18n="pricing_title">Pricing</h3>
+      <div class="grid cards pricing">
+        <article class="card">
+          <h4 data-i18n="price_walk_title">Walks</h4>
+          <ul class="price-list">
+            <li><span data-i18n="price_walk_30">30 min walk</span> <strong>₹199</strong></li>
+            <li><span data-i18n="price_walk_60">60 min walk</span> <strong>₹349</strong></li>
+            <li><span data-i18n="price_walk_pkg">10-walk pack</span> <strong>₹1790</strong></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h4 data-i18n="price_groom_title">Grooming</h4>
+          <ul class="price-list">
+            <li><span data-i18n="price_groom_small">Small breed</span> <strong>₹999</strong></li>
+            <li><span data-i18n="price_groom_med">Medium breed</span> <strong>₹1299</strong></li>
+            <li><span data-i18n="price_groom_large">Large breed</span> <strong>₹1599</strong></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h4 data-i18n="price_vet_title">Vet Accompany</h4>
+          <ul class="price-list">
+            <li><span data-i18n="price_vet_basic">Clinic visit (up to 1 hr)</span> <strong>₹499</strong></li>
+            <li><span data-i18n="price_vet_extra">Every extra 30 min</span> <strong>₹199</strong></li>
+          </ul>
+        </article>
+      </div>
+      <p class="price-note" data-i18n="price_note">Prices vary by locality and size; final quote confirmed on WhatsApp.</p>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section class="section" id="why">
+    <div class="container">
+      <h3 class="section-title" data-i18n="why_title">Why choose Petopia?</h3>
+      <div class="grid features">
+        <div class="feature"><h4 data-i18n="why_local">Local walkers from your area</h4><p data-i18n="why_local_p">Kharghar, Panvel, and Ulwe specialists who know every lane and park.</p></div>
+        <div class="feature"><h4 data-i18n="why_safe">Safety-first</h4><p data-i18n="why_safe_p">Leashes, ID checks, and real-time updates.</p></div>
+        <div class="feature"><h4 data-i18n="why_convenient">Convenient scheduling</h4><p data-i18n="why_convenient_p">Book in seconds, reschedule anytime.</p></div>
+        <div class="feature"><h4 data-i18n="why_value">Great value</h4><p data-i18n="why_value_p">Transparent pricing and packages.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section section-alt" id="testimonials">
+    <div class="container">
+      <h3 class="section-title" data-i18n="testi_title">Loved by pet parents</h3>
+      <div class="grid testimonials">
+        <blockquote class="quote">
+          <p data-i18n="testi_1">“Reliable and caring. My Husky actually waits by the door!”</p>
+          <cite>— Aisha, Kharghar</cite>
+        </blockquote>
+        <blockquote class="quote">
+          <p data-i18n="testi_2">“Grooming at home saved us so much time. Super neat.”</p>
+          <cite>— Rohan, Panvel</cite>
+        </blockquote>
+        <blockquote class="quote">
+          <p data-i18n="testi_3">“They handled the vet visit end-to-end. Stress-free.”</p>
+          <cite>— Meera, Ulwe</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Form / Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h3 class="section-title" data-i18n="contact_title">Book now</h3>
+      <form id="book-form" class="form" novalidate>
+        <div class="grid form-grid">
+          <label>
+            <span data-i18n="form_name">Your name</span>
+            <input type="text" name="name" required placeholder="e.g., Neha" />
+          </label>
+          <label>
+            <span data-i18n="form_phone">Phone (WhatsApp)</span>
+            <input type="tel" name="phone" inputmode="tel" required placeholder="10-digit number" pattern="[0-9]{10}" />
+          </label>
+          <label>
+            <span data-i18n="form_locality">Locality</span>
+            <select name="locality" required>
+              <option>Kharghar</option>
+              <option>Panvel</option>
+              <option>Ulwe</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="form_service">Service</span>
+            <select name="service" required>
+              <option value="Walking" data-i18n="svc_walk_title">Dog Walking</option>
+              <option value="Grooming" data-i18n="svc_groom_title">Grooming at Home</option>
+              <option value="Vet Accompany" data-i18n="svc_vet_title">Vet Accompany</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="form_pet_size">Pet size</span>
+            <select name="size" required>
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="form_time">Preferred time</span>
+            <input type="time" name="time" required />
+          </label>
+        </div>
+        <button class="btn" type="submit" data-i18n="form_submit">Send on WhatsApp</button>
+        <p id="form-status" class="form-status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Petopia • <span data-i18n="footer_local">Kharghar • Panvel • Ulwe</span></p>
+    </div>
+  </footer>
 </body>
 </html>
+
