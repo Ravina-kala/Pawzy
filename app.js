@@ -88,7 +88,7 @@
       brand:'Pawzy', tagline:'Complete pet care at your doorstep',
       nav_services:'Services', nav_pricing:'Pricing', nav_why:'Why Us', nav_testimonials:'Testimonials', nav_contact:'Contact',
       hero_title:'Happy walks. Healthy pets. Hassle-free for you.',
-      hero_sub:'Serving Kharghar, Panvel, and Ulwe with reliable walking, grooming, and vet accompany.',
+      hero_sub:'Serving Kharghar, Panvel, and Ulwe with reliable walking, grooming, day boarding and vet accompany.',
       cta_book:'Book a walk',
       services_title:'Services',
       svc_walk_title:'Dog Walking', svc_walk_text:'Daily, weekly, or on-demand walks with GPS check-in and photo updates.',
