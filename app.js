@@ -42,7 +42,7 @@
   const waFloat = $('#whatsapp-float');
   function setWAFloat(){
     const loc = localitySel ? localitySel.value : 'Kharghar';
-    const msg = `Hi Petopia! I want to book a walk in ${loc}.`;
+    const msg = `Hi Pawzy! I want to book a walk in ${loc}.`;
     waFloat.href = waLink(msg);
   }
   if (waFloat){ setWAFloat(); localitySel && localitySel.addEventListener('change', setWAFloat); }
@@ -51,7 +51,7 @@
   const cta = $('#cta-book');
   if (cta){ cta.addEventListener('click', ()=>{
     const loc = localitySel.value;
-    const msg = `Hi Petopia! I'd like to book a walk in ${loc}.`;
+    const msg = `Hi Pawzy! I'd like to book a walk in ${loc}.`;
     window.open(waLink(msg),'_blank');
   }); }
 
@@ -85,7 +85,7 @@
   // i18n strings
   const dict = {
     en:{
-      brand:'Petopia', tagline:'Complete pet care at your doorstep',
+      brand:'Pawzy', tagline:'Complete pet care at your doorstep',
       nav_services:'Services', nav_pricing:'Pricing', nav_why:'Why Us', nav_testimonials:'Testimonials', nav_contact:'Contact',
       hero_title:'Happy walks. Healthy pets. Hassle-free for you.',
       hero_sub:'Serving Kharghar, Panvel, and Ulwe with reliable walking, grooming, and vet accompany.',
@@ -99,7 +99,7 @@
       price_groom_title:'Grooming', price_groom_small:'Small breed', price_groom_med:'Medium breed', price_groom_large:'Large breed',
       price_vet_title:'Vet Accompany', price_vet_basic:'Clinic visit (up to 1 hr)', price_vet_extra:'Every extra 30 min',
       price_note:'Prices vary by locality and size; final quote confirmed on WhatsApp.',
-      why_title:'Why choose Petopia?', why_local:'Local walkers from your area', why_local_p:'Kharghar, Panvel, and Ulwe specialists who know every lane and park.', why_safe:'Safety-first', why_safe_p:'Leashes, ID checks, and real-time updates.', why_convenient:'Convenient scheduling', why_convenient_p:'Book in seconds, reschedule anytime.', why_value:'Great value', why_value_p:'Transparent pricing and packages.',
+      why_title:'Why choose Pawzy?', why_local:'Local walkers from your area', why_local_p:'Kharghar, Panvel, and Ulwe specialists who know every lane and park.', why_safe:'Safety-first', why_safe_p:'Leashes, ID checks, and real-time updates.', why_convenient:'Convenient scheduling', why_convenient_p:'Book in seconds, reschedule anytime.', why_value:'Great value', why_value_p:'Transparent pricing and packages.',
       testi_title:'Loved by pet parents', testi_1:'“Reliable and caring. My Husky actually waits by the door!”', testi_2:'“Grooming at home saved us so much time. Super neat.”', testi_3:'“They handled the vet visit end-to-end. Stress-free.”',
       contact_title:'Book now', form_name:'Your name', form_phone:'Phone (WhatsApp)', form_locality:'Locality', form_service:'Service', form_pet_size:'Pet size', form_time:'Preferred time', form_submit:'Send on WhatsApp',
       footer_local:'Kharghar • Panvel • Ulwe'
@@ -137,7 +137,7 @@
       price_groom_title:'ग्रूमिंग', price_groom_small:'लहान जाती', price_groom_med:'मध्यम जाती', price_groom_large:'मोठी जाती',
       price_vet_title:'व्हेट सोबत', price_vet_basic:'क्लिनिक भेट (1 तास)', price_vet_extra:'प्रत्येक अतिरिक्त 30 मिनिटे',
       price_note:'किंमत क्षेत्र व आकारावर अवलंबून; अंतिम कोट WhatsApp वर.',
-      why_title:'Petopia का निवडाल?', why_local:'तुमच्या भागातील वॉकर', why_local_p:'खारघर, पनवेल आणि उलवे येथील तज्ज्ञ.', why_safe:'सेफ्टी फर्स्ट', why_safe_p:'लीश, आयडी चेक, रिअल-टाइम अपडेट्स.', why_convenient:'सोयीस्कर वेळापत्रक', why_convenient_p:'सेकंदात बुक करा, कधीही बदला.', why_value:'मोलाचा फायदा', why_value_p:'पारदर्शक किंमत आणि पॅक.',
+      why_title:'Pawzy का निवडाल?', why_local:'तुमच्या भागातील वॉकर', why_local_p:'खारघर, पनवेल आणि उलवे येथील तज्ज्ञ.', why_safe:'सेफ्टी फर्स्ट', why_safe_p:'लीश, आयडी चेक, रिअल-टाइम अपडेट्स.', why_convenient:'सोयीस्कर वेळापत्रक', why_convenient_p:'सेकंदात बुक करा, कधीही बदला.', why_value:'मोलाचा फायदा', why_value_p:'पारदर्शक किंमत आणि पॅक.',
       testi_title:'पेट पॅरेंट्सना आवडले', testi_1:'“विश्वासू आणि काळजी घेणारे. माझा हस्की दारात वाट पाहतो!”', testi_2:'“घरी ग्रूमिंगने खूप वेळ वाचला. एकदम neat.”', testi_3:'“व्हेट व्हिजिट त्यांनी पूर्ण हाताळली. Stress-free.”',
       contact_title:'आता बुक करा', form_name:'तुमचे नाव', form_phone:'फोन (WhatsApp)', form_locality:'भाग', form_service:'सेवा', form_pet_size:'पेटचा आकार', form_time:'वेळ', form_submit:'WhatsApp वर पाठवा',
       footer_local:'खारघर • पनवेल • उलवे'
@@ -152,9 +152,9 @@
   }
 
   const langSel = $('#lang');
-  const saved = localStorage.getItem('petopia:lang') || 'en';
+  const saved = localStorage.getItem('pawzy:lang') || 'en';
   applyLang(saved);
   langSel?.addEventListener('change',()=>{
-    const v = langSel.value; localStorage.setItem('petopia:lang', v); applyLang(v);
+    const v = langSel.value; localStorage.setItem('pawzy:lang', v); applyLang(v);
   });
 })();
