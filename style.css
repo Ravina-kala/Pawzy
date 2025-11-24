@@ -14,7 +14,13 @@ img{max-width:100%;display:block;border-radius:16px}
 .site-header{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.8);backdrop-filter:blur(10px);border-bottom:1px solid #1f2937}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
 .brand{display:flex;align-items:center;gap:12px}
-.logo{width:44px;height:44px;object-fit:cover;border-radius:12px}
+/* .logo{width:44px;height:44px;object-fit:cover;border-radius:12px} */
+.logo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
 .brand-title{font-size:1.25rem;font-weight:700}
 .brand-tag{font-size:.9rem;color:var(--muted)}
 
