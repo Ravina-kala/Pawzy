@@ -29,7 +29,7 @@
     align-items: center;
     z-index: 9999;
     opacity: 1;
-    transition: opacity 1.2s ease; /* smoother fade */
+    transition: opacity 4.0s ease; /* smoother fade */
   }
 
   .hide-preloader {
@@ -293,7 +293,7 @@
   window.addEventListener("load", () => {
     setTimeout(() => {
       document.getElementById("preloader").classList.add("hide-preloader");
-    }, 1200);  // delay before fade-out begins
+    }, 4000);  // delay before fade-out begins
   });
 </script>
 
