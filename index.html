@@ -40,12 +40,18 @@
 
 <style>
   #floating-dog {
-    position: fixed;
-    bottom: 20px;    /* distance from bottom */
-    right: 20px;     /* distance from right */
-    z-index: 99999;  /* always on top */
-    pointer-events: none; /* so it doesn’t block clicks */
-  }
+  position: fixed;
+  bottom: 20px;
+  left: 20px;        /* ⬅ moved to left side */
+  z-index: 99999;
+  opacity: 1;
+  transition: opacity 4.0s ease; /* smooth fade-in */
+  pointer-events: none;
+}
+
+.hidden-dog {
+  opacity: 0;        /* invisible until preloader hides */
+}
 </style>
 
  
@@ -69,7 +75,6 @@
 
   <!-- Floating Dog Animation -->
 <div id="floating-dog">
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
   <lottie-player
       src="assets/pet lovers.json"
@@ -314,11 +319,19 @@
 
 <script>
   window.addEventListener("load", () => {
+
+    // Fade out preloader after delay
     setTimeout(() => {
       document.getElementById("preloader").classList.add("hide-preloader");
-    }, 4000);  // delay before fade-out begins
+
+      // Show floating dog AFTER preloader disappears
+      setTimeout(() => {
+        document.getElementById("floating-dog").classList.remove("hidden-dog");
+      }, 4001); // delay matches fade duration
+    }, 4000); // your preloader delay
   });
 </script>
+
 
  
 </body>
