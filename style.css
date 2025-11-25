@@ -21,6 +21,7 @@ img{max-width:100%;display:block;border-radius:16px}
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
   color: #333333;                         /* dark grey text for readability */
 }
+
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
 .brand{display:flex;align-items:center;gap:12px}
 /* .logo{width:44px;height:44px;object-fit:cover;border-radius:12px} */
