@@ -38,6 +38,15 @@
   }
 </style>
 
+<style>
+  #floating-dog {
+    position: fixed;
+    bottom: 20px;    /* distance from bottom */
+    right: 20px;     /* distance from right */
+    z-index: 99999;  /* always on top */
+    pointer-events: none; /* so it doesn’t block clicks */
+  }
+</style>
 
  
 </head>
@@ -57,6 +66,20 @@
         autoplay>
     </lottie-player>
   </div>
+
+  <!-- Floating Dog Animation -->
+<div id="floating-dog">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <lottie-player
+      src="assets/pet lovers.json"
+      background="transparent"
+      speed="1"
+      style="width:150px;height:150px;"
+      loop
+      autoplay>
+  </lottie-player>
+</div>
 
   <!-- Floating WhatsApp (always visible) -->
   <a id="whatsapp-float" class="btn-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
