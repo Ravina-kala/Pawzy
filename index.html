@@ -15,34 +15,110 @@
    gtag('config', 'G-0DGJRLKDQF');
 </script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Pawzy — Complete pet care at your doorstep. Dog walking, grooming, day boarding and vet accompany in Mumbai, Navi Mumbai and Thane." />
-  <meta property="og:title" content="Pawzy" />
-    <!-- PWA Manifest -->
-  <link rel="manifest" href="/manifest.json">
-  
-  <!-- Theme colors -->
-  <meta name="theme-color" content="#68C07F" />
-  
-  <!-- App icons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/image/pawzy-favicon-32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/image/pawzy-favicon-192.png">
-  <link rel="apple-touch-startup-image" href="/image/pawzy-apple-180.png">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
 
-  <meta property="og:description" content="Complete pet care at your doorstep!" />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0ea5e9" />
-  <title>Pawzy • Complete pet care at your doorstep!</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="app.js"></script>
+ <style>
+
+  :root{
+  --bg:#fff8f3; --panel:#fff3ea; --ink:#4b3f38; --muted:#9c8f86; --brand:#e8a56c; --accent:#f2c59b; --ok:#72b085; --warn:#e8b15c;
+  }
+  *{box-sizing:border-box}
+  html,body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:#f5f7fa; color:#111;}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:#f5f7fa; color:#111;}
+  img{max-width:100%;display:block;border-radius:16px}
+  .container{width:min(1100px,92%);margin:0 auto}
+  .visually-hidden{position:absolute;left:-9999px}
   
-   <style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.85); /* light & friendly */
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #e0e0e0;       /* soft grey border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+    color: #333333;                         /* dark grey text for readability */
+  }
+  
+  .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px}
+  /* .logo{width:44px;height:44px;object-fit:cover;border-radius:12px} */
+  .logo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .brand-title{font-size:1.25rem;font-weight:700}
+  .brand-tag{font-size:.9rem;color:var(--muted)}
+  
+  .nav-toggle{display:inline-flex;background:transparent;color:var(--ink);border:1px solid #334155;border-radius:10px;padding:.4rem .6rem}
+  .nav-list{list-style:none;margin:0;padding:0;display:none;gap:18px}
+  .nav-list a{color:var(--ink);text-decoration:none;font-weight:600;opacity:.9}
+  .nav-list a:hover{opacity:1}
+  @media (min-width:900px){.nav-toggle{display:none}.nav-list{display:flex}}
+  
+  .lang-switch select{background:#0b1220;border:1px solid #334155;color:var(--ink);border-radius:10px;padding:.4rem .6rem}
+  
+  .hero{padding:56px 0}
+  .hero-inner{display:grid;gap:24px;align-items:center}
+  .hero-copy h2{font-size:2rem;line-height:1.2;margin:.2rem 0 1rem}
+  .hero-copy p{color:var(--muted)}
+  .hero-cta{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+  .select, .btn{border-radius:12px;border:1px solid #1f2937}
+  .select{background:#0b1220;color:var(--ink);padding:.7rem 1rem}
+  .btn{background:linear-gradient(90deg,var(--brand),var(--accent));color:#00131a;padding:.8rem 1.1rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
+  
+  .hero-media img{box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  @media (min-width:900px){.hero-inner{grid-template-columns:1.1fr 1fr}.hero-copy h2{font-size:2.6rem}}
+  
+  .section{padding:56px 0}
+  .section-alt{background:radial-gradient(1200px 300px at 50% 0,rgba(14,165,233,.12),transparent)}
+  .section-title{font-size:1.6rem;margin:0 0 18px}
+  .grid{display:grid;gap:18px}
+  .cards{grid-template-columns:1fr}
+  @media (min-width:800px){.cards{grid-template-columns:repeat(3,1fr)}}
+  .card{background:#ffffff; border:1px solid #ddd; border-radius:16px; padding:16px; box-shadow:0 4px 12px rgba(0,0,0,0.05);}
+  .card h4{margin:.6rem 0}
+  
+  .features{grid-template-columns:1fr;}
+  @media (min-width:900px){.features{grid-template-columns:repeat(4,1fr)}}
+  .feature{background:#ffffff; border:1px solid #ddd; border-radius:16px; padding:16px;}
+  
+  .pricing .price-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  .price-note{color:var(--muted);margin-top:8px}
+  
+  .testimonials .quote{background:#ffffff; border:1px solid #ddd; border-radius:16px; padding:16px;}
+  
+  .form{display:grid;gap:12px}
+  .form-grid{grid-template-columns:1fr;}
+  .form label{display:grid;gap:6px}
+  .form input,.form select{background:#ffffff; border:1px solid #ccc; color:#111; padding:.75rem; border-radius:12px;}
+  @media (min-width:900px){.form-grid{grid-template-columns:repeat(3,1fr)}}
+  .form-status{min-height:1.2rem;color:var(--ok)}
+  
+  .site-footer{border-top:1px solid #1f2937;padding:28px 0;color:var(--muted)}
+  
+  /* Floating WhatsApp */
+  .btn-whatsapp{position:fixed;right:16px;bottom:16px;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#002;box-shadow:0 10px 30px rgba(0,0,0,.35);z-index:60}
+  .btn-whatsapp svg{width:28px;fill:#001}
+  .btn-whatsapp:hover{transform:translateY(-2px)}
+  
+  /* Motion */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none!important;animation:none!important}
+  }
+  
+  /* Utility */
+  .hidden{display:none}
+  
+  /* Accessibility focus */
+  :focus-visible{outline:2px dashed var(--accent);outline-offset:4px}
+  
   #preloader {
     position: fixed;
     inset: 0;
@@ -59,9 +135,7 @@
     opacity: 0;
     visibility: hidden;
   }
-</style>
 
-<style>
   #floating-dog {
   position: fixed;
   bottom: 20px;
@@ -75,16 +149,65 @@
 .hidden-dog {
   opacity: 0;        /* invisible until preloader hides */
 }
+  
 </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Pawzy — Complete pet care at your doorstep. Dog walking, grooming, day boarding and vet accompany in Mumbai, Navi Mumbai and Thane." />
+  <meta property="og:title" content="Pawzy" />
+    <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Theme colors -->
+  <meta name="theme-color" content="#68C07F" />
+  
+  <!-- App icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/pawzy-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/image/pawzy-favicon-192.png">
+  <!-- <link rel="apple-touch-startup-image" href="/image/pawzy-apple-180.png"> -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+
+  <meta property="og:description" content="Complete pet care at your doorstep!" />
+  <meta property="og:type" content="website" />
+  
+  <title>Pawzy • Complete pet care at your doorstep!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+</noscript>
+  
+  <script defer src="app.js"></script>
 
  
 </head>
 
+
+ <script>
+  window.addEventListener("load", () => {
+    const s = document.createElement("script");
+    s.src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+    document.body.appendChild(s);
+  });
+</script>
+
+ <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+</script>
 <body>
 
  <!-- Preloader -->
   <div id="preloader">
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
 
     <lottie-player 
         src="assets/Yoga Dog.json"
@@ -96,6 +219,16 @@
     </lottie-player>
   </div>
 
+ <div id="preloader">
+  <lottie-player 
+      src="assets/Yoga Dog.json"
+      background="transparent"
+      speed="1"
+      style="width:220px;height:220px;"
+      loop
+      autoplay>
+  </lottie-player>
+</div>
   <!-- Floating Dog Animation -->
 <div id="floating-dog" class="hidden-dog">
 
@@ -118,7 +251,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
-        <img src="image/Pawzy logo crop.jpg" alt="Pawzy logo" class="logo"/>
+        <img src="image/pawzy-logo-optimized.webp" alt="Pawzy logo" class="logo">
         <div>
           <h1 class="brand-title" data-i18n="brand">Pawzy</h1>
           <p class="brand-tag" data-i18n="tagline">Complete pet care at your doorstep</p>
@@ -151,7 +284,8 @@
           src="image/dog-walk-forest-optimized.webp"
           alt="Owner walking a happy dog"
           
-          loading="lazy"
+          fetchpriority="high"
+          loading="eager"
         />
 
       </div>
