@@ -8,53 +8,55 @@ const STATIC_ASSETS = [
   "/style.css",
   "/app.js",
   "/manifest.json",
+  "/offline.html",
   "/image/pawzy-favicon-32.png",
   "/image/pawzy-favicon-192.png",
   "/image/pawzy-apple-180.png"
 ];
 
-// Install SW
+// INSTALL
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(STATIC_CACHE).then((cache) => {
-      return cache.addAll(STATIC_ASSETS);
-    })
+    caches.open(STATIC_CACHE).then((cache) => cache.addAll(STATIC_ASSETS))
   );
 });
 
-// Activate SW (delete old caches)
+// ACTIVATE
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.map((key) => {
-        if (!key.includes(CACHE_VERSION)) {
-          return caches.delete(key);
-        }
-      }))
+      Promise.all(
+        keys.map((key) => {
+          if (!key.includes(CACHE_VERSION)) {
+            return caches.delete(key);
+          }
+        })
+      )
     )
   );
+
+  // 🔥 Activate new service worker immediately
+  self.clients.claim();
 });
 
-// Fetch Strategy
+// FETCH
 self.addEventListener("fetch", (event) => {
   const req = event.request;
 
-  // HTML pages → Network First
   if (req.headers.get("accept").includes("text/html")) {
     event.respondWith(networkFirst(req));
   } else {
-    // CSS, JS, images → Cache First
     event.respondWith(cacheFirst(req));
   }
 });
 
-// Cache First
+// CACHE FIRST
 async function cacheFirst(req) {
-  const cache = await caches.match(req);
-  return cache || fetch(req);
+  const cached = await caches.match(req);
+  return cached || fetch(req);
 }
 
-// Network First
+// NETWORK FIRST (offline fallback inside catch)
 async function networkFirst(req) {
   const cache = await caches.open(DYNAMIC_CACHE);
 
@@ -63,6 +65,7 @@ async function networkFirst(req) {
     cache.put(req, fresh.clone());
     return fresh;
   } catch (e) {
-    return cache.match(req);
+    // 🔥 Show offline page when internet is gone
+    return cache.match("/offline.html");
   }
 }
