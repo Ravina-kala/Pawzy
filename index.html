@@ -18,7 +18,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Pawzy — Complete pet care at your doorstep. Dog walking, grooming, day boarding and vet accompany in Mumbai, Navi Mumbai and Thane." />
   <meta property="og:title" content="Pawzy" />
-  <link rel="icon" type="image/png" href="image/Pawzy logo crop.jpg">
+    <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Theme colors -->
+  <meta name="theme-color" content="#68C07F" />
+  
+  <!-- App icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/pawzy-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/image/pawzy-favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/image/pawzy-apple-180.png">
+
   <meta property="og:description" content="Complete pet care at your doorstep!" />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0ea5e9" />
@@ -28,7 +38,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <script defer src="app.js"></script>
-
+  
    <style>
   #preloader {
     position: fixed;
@@ -134,7 +144,13 @@
         
       </div>
       <div class="hero-media">
-        <img src="image/pexels-jagheterjohann-1254140.jpg" alt="Owner walking a happy dog"/>
+        <img 
+          src="image/dog-walk-forest-optimized.webp"
+          alt="Owner walking a happy dog"
+          
+          loading="lazy"
+        />
+
       </div>
     </div>
   </section>
@@ -148,8 +164,7 @@
           <img 
               src="image/dog-walking-optimized.webp"
               alt="Dog walking"
-              width="600"
-              height="900"
+              
               loading="eager"
               fetchpriority="high"
             />
@@ -159,12 +174,24 @@
           <p data-i18n="svc_walk_text">Daily, weekly, or on-demand walks with GPS check-in and photo updates.</p>
         </article>
         <article class="card">
-          <img src="image/pexels-valeriia-harbuz-2161259-12943750.jpg" alt="Grooming" />
+          <img 
+            src="image/dog-grooming-optimized.webp"
+            alt="Dog grooming"
+           
+            loading="lazy"
+          />
+
           <h4 data-i18n="svc_groom_title">Grooming at Home</h4>
           <p data-i18n="svc_groom_text">Bath, brush, nails, and ear cleaning at your doorstep.</p>
         </article>
         <article class="card">
-           <img src="image/dog sleeping.jpg" alt="Day boarding" />
+           <img 
+               src="image/dog-sleeping-optimized.webp"
+               alt="Day boarding"
+               
+               loading="lazy"
+             />
+
            <h4 data-i18n="svc_board_title">Day boarding</h4>
            <p data-i18n="svc_board_text">We provide day boarding services to your furry partner while you are away.</p>
          </article>
@@ -172,8 +199,7 @@
           <img 
             src="image/dog-car-optimized.webp"
             alt="Dog enjoying the ride"
-            width="600"
-            height="400"
+            
             loading="lazy"
           />
 
