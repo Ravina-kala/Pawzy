@@ -1,0 +1,28 @@
+{
+  "name": "Pawzy",
+  "short_name": "Pawzy",
+  "description": "Premium dog care, grooming, walking, and pet services.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#68C07F",
+  "icons": [
+    {
+      "src": "/image/pawzy-favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/image/pawzy-favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/image/pawzy-apple-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
