@@ -39,7 +39,7 @@
     align-items: center;
     z-index: 9999;
     opacity: 1;
-    transition: opacity 4.0s ease; /* smoother fade */
+    transition: opacity 2.0s ease; /* smoother fade */
   }
 
   .hide-preloader {
@@ -55,7 +55,7 @@
   left: 20px;        /* ⬅ moved to left side */
   z-index: 99999;
   opacity: 1;
-  transition: opacity 4.0s ease; /* smooth fade-in */
+  transition: opacity 2.0s ease; /* smooth fade-in */
   pointer-events: none;
 }
 
@@ -329,8 +329,8 @@
       // Show floating dog AFTER preloader disappears
       setTimeout(() => {
         document.getElementById("floating-dog").classList.remove("hidden-dog");
-      }, 4001); // delay matches fade duration
-    }, 4000); // your preloader delay
+      }, 2001); // delay matches fade duration
+    }, 2000); // your preloader delay
   });
 </script>
 
