@@ -80,6 +80,31 @@
   @media (min-width:800px){.cards{grid-template-columns:repeat(3,1fr)}}
   .card{background:#ffffff; border:1px solid #ddd; border-radius:16px; padding:16px; box-shadow:0 4px 12px rgba(0,0,0,0.05);}
   .card h4{margin:.6rem 0}
+
+  /* Elegant Card Hover Animations */
+  .card {
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.10);
+  }
+  
+  /* Subtle animated glow (brand-coloured, elegant) */
+  .card:hover {
+    box-shadow:
+      0 14px 32px rgba(0,0,0,0.10),
+      0 0 0 3px rgba(232,165,108,0.12); /* brand glow */
+  }
+
+  .card-link {
+     text-decoration: none;
+     color: inherit;
+     display: block;
+   }
+
   
   .features{grid-template-columns:1fr;}
   @media (min-width:900px){.features{grid-template-columns:repeat(4,1fr)}}
@@ -276,53 +301,39 @@
     <div class="container">
       <h3 class="section-title" data-i18n="services_title">Services</h3>
       <div class="grid cards">
-        <article class="card">
-          <img 
-              src="image/dog-walking-optimized.webp"
-              alt="Dog walking"
-              
-              loading="eager"
-              fetchpriority="high"
-            />
+       
+       <a href="/dog-walking.html" class="card-link">
+         <article class="card">
+           <img src="image/dog-walking-optimized.webp" alt="Dog walking" loading="eager" fetchpriority="high" />
+           <h4 data-i18n="svc_walk_title">Dog Walking</h4>
+           <p data-i18n="svc_walk_text">Monthly walks with GPS check-in and photo updates.</p>
+         </article>
+        </a>
 
+        <a href="/grooming.html" class="card-link">
+         <article class="card">
+           <img src="image/dog-grooming-optimized.webp" alt="Dog grooming" loading="lazy" />
+           <h4 data-i18n="svc_groom_title">Grooming at Home</h4>
+           <p data-i18n="svc_groom_text">Bath, brush, nails, and ear cleaning at your doorstep.</p>
+         </article>
+        </a>
 
-          <h4 data-i18n="svc_walk_title">Dog Walking</h4>
-          <p data-i18n="svc_walk_text">Daily, weekly, or on-demand walks with GPS check-in and photo updates.</p>
-        </article>
-        <article class="card">
-          <img 
-            src="image/dog-grooming-optimized.webp"
-            alt="Dog grooming"
-           
-            loading="lazy"
-          />
-
-          <h4 data-i18n="svc_groom_title">Grooming at Home</h4>
-          <p data-i18n="svc_groom_text">Bath, brush, nails, and ear cleaning at your doorstep.</p>
-        </article>
-        <article class="card">
-           <img 
-               src="image/dog-sleeping-optimized.webp"
-               alt="Day boarding"
-               
-               loading="lazy"
-             />
-
+        <a href="/day-boarding.html" class="card-link">
+         <article class="card">
+           <img src="image/dog-sleeping-optimized.webp" alt="Day boarding" loading="lazy" />
            <h4 data-i18n="svc_board_title">Day boarding</h4>
            <p data-i18n="svc_board_text">We provide day boarding services to your furry partner while you are away.</p>
          </article>
-        <article class="card">
-          <img 
-            src="image/dog-car-optimized.webp"
-            alt="Dog enjoying the ride"
-            
-            loading="lazy"
-          />
+        </a>
 
+        <a href="/vet-accompany.html" class="card-link">
+         <article class="card">
+           <img src="image/dog-car-optimized.webp" alt="Dog enjoying the ride" loading="lazy" />
+           <h4 data-i18n="svc_vet_title">Vet Accompany</h4>
+           <p data-i18n="svc_vet_text">We accompany your pet to the vet, manage queues, and keep you updated.</p>
+         </article>
+        </a>
 
-          <h4 data-i18n="svc_vet_title">Vet Accompany</h4>
-          <p data-i18n="svc_vet_text">We accompany your pet to the vet, manage queues, and keep you updated.</p>
-        </article>
        
       </div>
     </div>
