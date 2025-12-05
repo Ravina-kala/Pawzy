@@ -1,9 +1,17 @@
+<!-- Sticky Mobile Header -->
+<header class="pwz-mobile-header">
+  <div class="pwz-logo">Pawzy 🐾</div>
+  <a class="pwz-header-cta" href="https://wa.me/+919152691665?text=Hi%20Pawzy%2C%20I%20want%20to%20book%20a%20dog%20walk">
+    Book Walk
+  </a>
+</header>
+
 <!-- Dog Walking Service Section -->
 <section id="dog-walking" class="pawzy-section">
   <div class="pawzy-container">
 
-    <!-- Hero / Intro -->
-    <div class="pwz-hero">
+    <!-- Hero / Intro with Glassmorphism + Scroll Reveal -->
+    <div class="pwz-hero glass-hero pwz-reveal-scroll">
       <span class="pwz-pill">🐾 Premium Dog Walking • Panvel & Nearby</span>
       <h1>Dog Walking with Safety, Love & Discipline</h1>
       <p class="pwz-hero-sub">
@@ -34,7 +42,7 @@
     <div class="pwz-card-grid">
 
       <!-- Card 1: GPS -->
-      <article class="pwz-card pwz-reveal">
+      <article class="pwz-card pwz-reveal-scroll">
         <!-- <div class="pwz-card-icon">📍</div> -->
         <h2>Real-Time GPS Tracking</h2>
         <p>
@@ -58,7 +66,7 @@
       </article>
 
       <!-- Card 2: Poop Picker / Swachh Bharat -->
-      <article class="pwz-card pwz-reveal pwz-delay-1">
+      <article class="pwz-card pwz-reveal-scroll">
         <!-- <div class="pwz-card-icon">🧼🇮🇳</div> -->
         <h2>Poop Picker Facility</h2>
         <p>
@@ -81,7 +89,7 @@
       </article>
 
       <!-- Card 3: Customised Walks -->
-      <article class="pwz-card pwz-reveal pwz-delay-2">
+      <article class="pwz-card pwz-reveal-scroll">
         <!-- <div class="pwz-card-icon">🚶‍♂️🐕</div> -->
         <h2>Customised, Structured Walks</h2>
         <p>
@@ -101,12 +109,12 @@
     </div>
 
     <!-- Simple booking anchor (optional) -->
-    <div id="dog-walking-booking" class="pwz-booking-strip">
+    <div id="dog-walking-booking" class="pwz-booking-strip pwz-reveal-scroll">
       <div>
         <h3>Ready to schedule your dog’s next walk?</h3>
         <p>Share your preferred time slot and location, and our team will confirm your booking.</p>
       </div>
-      <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20Pawzy%2C%20I%20want%20to%20book%20a%20dog%20walk" class="pwz-btn-primary">
+      <a href="https://wa.me/+919152691665?text=Hi%20Pawzy%2C%20I%20want%20to%20book%20a%20dog%20walk" class="pwz-btn-primary">
         WhatsApp to Book
       </a>
     </div>
@@ -114,9 +122,16 @@
   </div>
 </section>
 
+<!-- Sticky CTA Bottom Bar -->
+<div class="pwz-sticky-cta">
+  <a href="https://wa.me/+919152691665?text=Hi%20Pawzy%2C%20I%20want%20to%20book%20a%20dog%20walk">
+    Book a Walk on WhatsApp 🐾
+  </a>
+</div>
+
 <style>
   .pawzy-section {
-    padding: 80px 16px;
+    padding: 90px 16px 100px;
     background: linear-gradient(145deg, #fffdf7, #fdf8ff);
   }
 
@@ -125,9 +140,50 @@
     margin: 0 auto;
   }
 
+  /* Sticky Mobile Header */
+  .pwz-mobile-header {
+    position: sticky;
+    top: 0;
+    z-index: 1200;
+    background: #ffffffdd;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .pwz-logo {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .pwz-header-cta {
+    background: #ff6f4c;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
   .pwz-hero {
     text-align: left;
     margin-bottom: 48px;
+  }
+
+  /* Glassmorphism Hero */
+  .glass-hero {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border-radius: 28px;
+    padding: 32px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 10px 34px rgba(0, 0, 0, 0.07);
   }
 
   .pwz-pill {
@@ -212,7 +268,7 @@
   .pwz-card-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    gap: 24px;
   }
 
   .pwz-card {
@@ -228,9 +284,7 @@
     line-height: 1.6;
     position: relative;
     overflow: hidden;
-    transform: translateY(8px);
-    opacity: 0;
-    animation: pwzFadeUp 0.7s ease forwards;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .pwz-card-icon {
@@ -259,6 +313,7 @@
     background: radial-gradient(circle at top left, rgba(255, 111, 76, 0.06), transparent 55%);
     opacity: 0;
     transition: opacity 0.2s ease;
+    pointer-events: none;
   }
 
   .pwz-card:hover {
@@ -294,102 +349,118 @@
     color: #555;
   }
 
-  /* Animation */
-  @keyframes pwzFadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(14px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* Scroll Reveal Animation (for hero, cards, booking strip) */
+  .pwz-reveal-scroll {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
   }
 
-  .pwz-reveal {
-    animation-delay: 0.1s;
+  .pwz-reveal-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .pwz-delay-1 {
-    animation-delay: 0.25s;
+  /* Sticky Bottom CTA */
+  .pwz-sticky-cta {
+    position: fixed;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 1300;
+    pointer-events: none;
   }
 
-  .pwz-delay-2 {
-    animation-delay: 0.4s;
+  .pwz-sticky-cta a {
+    pointer-events: auto;
+    background: #ff6f4c;
+    color: #ffffff;
+    padding: 14px 26px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 12px 30px rgba(255, 111, 76, 0.45);
   }
 
-  /* Responsive */
+  /* Subtle tap effect for mobile cards */
   @media (max-width: 900px) {
+    .pwz-card {
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .pwz-card:active {
+      transform: scale(0.97);
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.12);
+    }
+
     .pwz-card-grid {
       grid-template-columns: 1fr;
+      gap: 28px;
     }
   }
 
+  /* Mobile-specific adjustments */
   @media (max-width: 600px) {
     .pawzy-section {
-      padding: 56px 14px;
+      padding: 70px 14px 100px;
     }
 
     .pwz-hero h1 {
       font-size: 26px;
     }
 
+    .pwz-hero-sub {
+      font-size: 15px;
+    }
+
+    .pwz-hero-list li {
+      font-size: 14px;
+    }
+
+    .pwz-cta-wrap {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .pwz-btn-primary,
+    .pwz-btn-ghost {
+      width: 100%;
+      text-align: center;
+      padding: 12px 16px;
+      font-size: 15px;
+    }
+
     .pwz-booking-strip {
       align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .pwz-booking-strip a {
+      width: 100%;
+      text-align: center;
     }
   }
-
-/* ------------------------------------------
-   MOBILE-FRIENDLY CARD GRID
-   Elegant stacked layout with smooth scrolling
-------------------------------------------- */
-
-@media (max-width: 900px) {
-
-  .pwz-card-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 4px 0;
-  }
-
-  .pwz-card {
-    border-radius: 22px;
-    padding: 20px 18px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.06);
-    margin: 0 4px;
-    background: #ffffff;
-  }
-
-  /* Smooth scroll feel */
-  body, .pawzy-section {
-    scroll-behavior: smooth;
-  }
-
-  /* Better spacing */
-  .pawzy-section {
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
-
-  /* Hero text readability on mobile */
-  .pwz-hero h1 {
-    font-size: 24px !important;
-    line-height: 1.35;
-    margin-bottom: 12px;
-  }
-
-  .pwz-hero-sub {
-    font-size: 15px;
-    line-height: 1.65;
-  }
-
-  /* Booking strip spacing fix */
-  .pwz-booking-strip {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px 16px;
-  }
-}
-
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".pwz-reveal-scroll");
+
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect().top;
+        if (rect < trigger) {
+          el.classList.add("visible");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+  });
+</script>
