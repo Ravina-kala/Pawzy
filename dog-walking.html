@@ -443,13 +443,23 @@
       text-align: center;
     }
   }
-  /* FORCE cards to stack on ALL mobile devices */
-@media (max-width: 1024px) {
-  .pwz-card-grid {
-    grid-template-columns: 1fr !important;
-    gap: 28px !important;
+  /* Improve readability of feature cards on mobile */
+@media (max-width: 600px) {
+  .pwz-card h2 {
+    font-size: 20px !important;
+    line-height: 1.35;
+  }
+
+  .pwz-card p {
+    font-size: 16px !important;
+    line-height: 1.6;
+  }
+
+  .pwz-card {
+    padding: 22px 18px !important;
   }
 }
+
 </style>
 
 <script>
@@ -471,4 +481,5 @@
     revealOnScroll();
   });
 </script>
+
 
