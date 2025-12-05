@@ -51,7 +51,25 @@
   }
   .brand-title{font-size:1.25rem;font-weight:700}
   .brand-tag{font-size:.9rem;color:var(--muted)}
-  
+
+  /* Mobile Burger Menu */
+   .nav-list {
+     flex-direction: column;
+     background: white;
+     padding: 16px;
+     border-radius: 12px;
+     margin-top: 12px;
+   }
+   
+   .nav-list.show {
+     display: flex !important;
+   }
+   
+   .nav-toggle {
+     font-size: 1.4rem;
+     cursor: pointer;
+   }
+
   .nav-toggle{display:inline-flex;background:transparent;color:var(--ink);border:1px solid #334155;border-radius:10px;padding:.4rem .6rem}
   .nav-list{list-style:none;margin:0;padding:0;display:none;gap:18px}
   .nav-list a{color:var(--ink);text-decoration:none;font-weight:600;opacity:.9}
@@ -261,7 +279,10 @@
           <p class="brand-tag" data-i18n="tagline">Complete pet care at your doorstep</p>
         </div>
       </div>
-      <nav class="nav">
+
+     <button id="navToggle" class="nav-toggle">☰</button>
+     
+     <nav class="nav">
         
         <ul id="navmenu" class="nav-list">
           <li><a href="#services" data-i18n="nav_services">Services</a></li>
@@ -269,6 +290,9 @@
           <li><a href="#why" data-i18n="nav_why">Why Us</a></li>
           <li><a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a></li>
           <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+          <li><a href="/collaborate.html">Collaborate</a></li>
+          <li><a href="/hiring.html">We Are Hiring</a></li>
+
         </ul>
       </nav>
       
@@ -505,6 +529,14 @@
   });
 </script>
 
+
+<script>
+  document.getElementById("navToggle").addEventListener("click", () => {
+    document.getElementById("navmenu").classList.toggle("show");
+  });
+</script>
+
+ 
  <!-- <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');
