@@ -443,6 +443,13 @@
       text-align: center;
     }
   }
+  /* FORCE cards to stack on ALL mobile devices */
+@media (max-width: 1024px) {
+  .pwz-card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+}
 </style>
 
 <script>
@@ -464,3 +471,4 @@
     revealOnScroll();
   });
 </script>
+
