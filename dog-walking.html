@@ -338,4 +338,58 @@
       align-items: flex-start;
     }
   }
+
+/* ------------------------------------------
+   MOBILE-FRIENDLY CARD GRID
+   Elegant stacked layout with smooth scrolling
+------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .pwz-card-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 4px 0;
+  }
+
+  .pwz-card {
+    border-radius: 22px;
+    padding: 20px 18px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.06);
+    margin: 0 4px;
+    background: #ffffff;
+  }
+
+  /* Smooth scroll feel */
+  body, .pawzy-section {
+    scroll-behavior: smooth;
+  }
+
+  /* Better spacing */
+  .pawzy-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  /* Hero text readability on mobile */
+  .pwz-hero h1 {
+    font-size: 24px !important;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .pwz-hero-sub {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* Booking strip spacing fix */
+  .pwz-booking-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 16px;
+  }
+}
+
 </style>
