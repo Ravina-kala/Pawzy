@@ -1,485 +1,398 @@
-<!-- Sticky Mobile Header -->
-<header class="pwz-mobile-header">
-  <div class="pwz-logo">Pawzy 🐾</div>
-  <a class="pwz-header-cta" href="https://wa.me/+919152691665?text=Hi%20Pawzy%2C%20I%20want%20to%20book%20a%20dog%20walk">
-    Book Walk
-  </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Pawzy • Dog Walking</title>
+  <meta name="description" content="Pawzy Dog Walking — safe, disciplined and loving walks with GPS tracking and trained walkers." />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/pawzy-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/image/pawzy-favicon-192.png">
+  <meta name="theme-color" content="#68C07F" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Base ===== */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: #f5f7fa;
+      color: #111;
+    }
+
+    /* ===== Header (same as index.html) ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .brand-tag {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 0;
+    }
+
+    .nav-wrapper { position: relative; }
+
+    .nav-toggle {
+      font-size: 1.4rem;
+      cursor: pointer;
+      background: transparent;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: .4rem .6rem;
+    }
+
+    .nav-popup {
+      position: absolute;
+      top: 110%;
+      right: 0;
+      z-index: 999;
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 14px 18px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+      min-width: 220px;
+    }
+
+    .nav-list.show { display: flex; }
+
+    .nav-list a {
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
+    }
+
+    @media (min-width: 900px) {
+      .nav-wrapper:hover .nav-list { display: flex; }
+    }
+
+    /* ===== Page styles ===== */
+    .pawzy-section {
+      padding: 90px 16px 100px;
+      background: linear-gradient(145deg, #fffdf7, #fdf8ff);
+    }
+
+    .pawzy-container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .glass-hero {
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(14px) saturate(180%);
+      border-radius: 28px;
+      padding: 32px 24px;
+      border: 1px solid rgba(255,255,255,0.6);
+      box-shadow: 0 10px 34px rgba(0,0,0,0.07);
+      margin-bottom: 48px;
+    }
+
+    .pwz-pill {
+      display: inline-block;
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: #f5f0ff;
+      border: 1px solid #e1d7ff;
+      margin-bottom: 12px;
+    }
+
+    .pwz-hero h1 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .pwz-hero-sub {
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 8px 0;
+      color: #444;
+    }
+
+    .pwz-hero-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    .pwz-hero-list li {
+      margin-bottom: 6px;
+    }
+
+    /* Text CTAs */
+    .cta-links {
+      margin-top: 20px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-links a {
+      color: #0b5ed7;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .cta-links a:hover { text-decoration: underline; }
+
+    /* Cards */
+    .pwz-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .pwz-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 20px 18px 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      border: 1px solid #f0e9ff;
+    }
+
+    .pwz-card h2 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .pwz-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .pwz-highlight {
+      font-weight: 500;
+    }
+
+    @media (max-width: 900px) {
+      .pwz-card-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    /* Sticky CTA */
+    .pwz-sticky-cta {
+      position: fixed;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      z-index: 1300;
+      pointer-events: none;
+    }
+
+    .pwz-sticky-cta a {
+      pointer-events: auto;
+      background: #25D366;
+      color: #002;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    /* Scroll Reveal */
+    .pwz-reveal-scroll {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .pwz-reveal-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/index.html" class="brand">
+      <img src="image/pawzy-logo-optimized.webp" alt="Pawzy logo" class="logo">
+      <div>
+        <h1 class="brand-title">Pawzy</h1>
+        <p class="brand-tag">Complete pet care at your doorstep</p>
+      </div>
+    </a>
+
+    <div class="nav-wrapper">
+      <button id="navToggle" class="nav-toggle" aria-label="Menu">☰</button>
+      <nav class="nav-popup">
+        <ul id="navmenu" class="nav-list">
+          <li><a href="/index.html#services">Services</a></li>
+          <li><a href="/index.html#pricing">Pricing</a></li>
+          <li><a href="/index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </header>
 
-<!-- Dog Walking Service Section -->
 <section id="dog-walking" class="pawzy-section">
   <div class="pawzy-container">
 
-    <!-- Hero / Intro with Glassmorphism + Scroll Reveal -->
     <div class="pwz-hero glass-hero pwz-reveal-scroll">
       <span class="pwz-pill">🐾 Premium Dog Walking • Panvel & Nearby</span>
       <h1>Dog Walking with Safety, Love & Discipline</h1>
+
       <p class="pwz-hero-sub">
         At Pawzy, we believe every dog deserves a safe, joyful, and enriching outdoor experience.
-        Our dog-walking service is carefully designed to give your furry companion the perfect mix of
-        exercise, mental stimulation, and emotional comfort.
       </p>
 
       <ul class="pwz-hero-list">
         <li>✅ Structured leash guidance & sniff-breaks</li>
         <li>✅ Hydration, comfort and positive attention</li>
-        <li>✅ Walks customised by age, breed, energy & behaviour</li>
-        <li>✅ Responsible, trained walkers who treat your dog like their own</li>
+        <li>✅ Walks customised by age, breed & behaviour</li>
+        <li>✅ Responsible, trained walkers</li>
       </ul>
 
       <p class="pwz-hero-sub">
-        Whether you’re working, traveling, or simply balancing a busy routine, Pawzy ensures your dog
-        never misses their essential daily dose of fun, fitness, and fresh air. ❤️🐾
+        Whether you’re working or traveling, Pawzy ensures your dog never misses their essential daily walk.
       </p>
 
-      <div class="pwz-cta-wrap">
-        <a href="#dog-walking-booking" class="pwz-btn-primary">Book a Walk</a>
-        <a href="#dog-walking-faq" class="pwz-btn-ghost">View FAQs</a>
+      <div class="cta-links">
+        <a href="#dog-walking-booking">How to book →</a>
+        <a href="/index.html#contact">Talk to us →</a>
       </div>
     </div>
 
-    <!-- Feature Cards -->
     <div class="pwz-card-grid">
 
-      <!-- Card 1: GPS -->
       <article class="pwz-card pwz-reveal-scroll">
-        <!-- <div class="pwz-card-icon">📍</div> -->
         <h2>Real-Time GPS Tracking</h2>
         <p>
-          At Pawzy, your pet’s safety and your peace of mind come first. That’s why we have introduced
-          real-time GPS tracking for every walk.
-        </p>
-        <p>
-          With this feature, you can instantly see where your dog is, how far they’ve walked, and the exact
-          route taken — all from your phone. Our GPS system updates continuously throughout the walk, ensuring
-          full transparency and zero guesswork.
-        </p>
-        <p>
-          You’ll know when the walk starts, when it ends, and every stop in between. Whether you’re at work,
-          traveling, or away from home, Pawzy’s GPS facility keeps you closely connected to your dog’s outdoor
-          adventure.
+          Track your dog’s walk live, including route, distance and timing.
         </p>
         <p class="pwz-highlight">
-          This technology not only ensures safety but also builds complete trust — because with Pawzy, you
-          always know your pet is in the right hands. 🐾📱✨
+          Transparency, safety and complete peace of mind. 🐾📍
         </p>
       </article>
 
-      <!-- Card 2: Poop Picker / Swachh Bharat -->
       <article class="pwz-card pwz-reveal-scroll">
-        <!-- <div class="pwz-card-icon">🧼🇮🇳</div> -->
         <h2>Poop Picker Facility</h2>
         <p>
-          At Pawzy, we believe responsible pet care goes beyond walking — it extends to keeping our surroundings
-          clean and hygienic. That’s why we have introduced a dedicated Poop Picker Facility with every walk.
-        </p>
-        <p>
-          Our walkers carry eco-friendly poop bags, sanitizers, and proper disposal kits to ensure that no waste
-          is left behind in your neighbourhood, parks, or streets. Every potty break is cleaned immediately and
-          disposed of safely, preventing foul smells, insects, infections, and environmental contamination.
-        </p>
-        <p>
-          This service is also a part of our contribution to the Swachhata Abhiyan, supporting the mission of a
-          cleaner, healthier, and more responsible India.
+          Walkers carry eco-friendly bags and clean up after every potty break.
         </p>
         <p class="pwz-highlight">
-          Every walk with Pawzy is not just good for your dog, but also good for the environment and your society.
-          Together, we take a small step towards a Swachh Bharat — one clean walk at a time. 🧼🇮🇳🐾
+          Clean streets, responsible pet care. 🧼🇮🇳
         </p>
       </article>
 
-      <!-- Card 3: Customised Walks -->
       <article class="pwz-card pwz-reveal-scroll">
-        <!-- <div class="pwz-card-icon">🚶‍♂️🐕</div> -->
-        <h2>Customised, Structured Walks</h2>
+        <h2>Customised Walks</h2>
         <p>
-          Every walk includes structured leash guidance, sniff-breaks, hydration, and plenty of positive attention
-          to keep your dog relaxed, confident, and happy.
-        </p>
-        <p>
-          We customise each walk based on your dog’s age, breed, energy level, and behaviour so that they get exactly
-          what they need.
-        </p>
-        <p>
-          Safety is our highest priority — our walkers are responsible, trained, and treat every dog with the same love
-          and patience they would give their own.
+          Walks tailored to your dog’s age, energy, and behaviour.
         </p>
       </article>
 
     </div>
 
-    <!-- Simple booking anchor (optional) -->
-    <div id="dog-walking-booking" class="pwz-booking-strip pwz-reveal-scroll">
-      <div>
-        <h3>Ready to schedule your dog’s next walk?</h3>
-        <p>Share your preferred time slot and location, and our team will confirm your booking.</p>
-      </div>
-      <a href="https://wa.me/+919152691665?text=Hi%20Pawzy%2C%20I%20want%20to%20book%20a%20dog%20walk" class="pwz-btn-primary">
-        WhatsApp to Book
-      </a>
+    <div id="dog-walking-booking" style="margin-top:48px; text-align:center;">
+      <h3>Ready to schedule your dog’s next walk?</h3>
+      <p>Message us on WhatsApp and we’ll confirm availability.</p>
     </div>
 
   </div>
 </section>
 
-<!-- Sticky CTA Bottom Bar -->
+<!-- Sticky CTA -->
 <div class="pwz-sticky-cta">
   <a href="https://wa.me/+919152691665?text=Hi%20Pawzy%2C%20I%20want%20to%20book%20a%20dog%20walk">
     Book a Walk on WhatsApp 🐾
   </a>
 </div>
 
-<style>
-  .pawzy-section {
-    padding: 90px 16px 100px;
-    background: linear-gradient(145deg, #fffdf7, #fdf8ff);
-  }
-
-  .pawzy-container {
-    max-width: 1080px;
-    margin: 0 auto;
-  }
-
-  /* Sticky Mobile Header */
-  .pwz-mobile-header {
-    position: sticky;
-    top: 0;
-    z-index: 1200;
-    background: #ffffffdd;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 12px 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #f0f0f0;
-  }
-
-  .pwz-logo {
-    font-size: 20px;
-    font-weight: 700;
-  }
-
-  .pwz-header-cta {
-    background: #ff6f4c;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 999px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  .pwz-hero {
-    text-align: left;
-    margin-bottom: 48px;
-  }
-
-  /* Glassmorphism Hero */
-  .glass-hero {
-    background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(14px) saturate(180%);
-    -webkit-backdrop-filter: blur(14px) saturate(180%);
-    border-radius: 28px;
-    padding: 32px 24px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 10px 34px rgba(0, 0, 0, 0.07);
-  }
-
-  .pwz-pill {
-    display: inline-block;
-    font-size: 13px;
-    padding: 6px 14px;
-    border-radius: 999px;
-    background: #f5f0ff;
-    border: 1px solid #e1d7ff;
-    margin-bottom: 12px;
-  }
-
-  .pwz-hero h1 {
-    font-size: 32px;
-    line-height: 1.3;
-    margin: 0 0 12px;
-  }
-
-  .pwz-hero-sub {
-    font-size: 15px;
-    line-height: 1.7;
-    margin: 8px 0;
-    color: #444;
-  }
-
-  .pwz-hero-list {
-    list-style: none;
-    padding: 0;
-    margin: 16px 0 16px;
-    font-size: 14px;
-    color: #333;
-  }
-
-  .pwz-hero-list li {
-    margin-bottom: 6px;
-  }
-
-  .pwz-cta-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 20px;
-  }
-
-  .pwz-btn-primary,
-  .pwz-btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 18px;
-    border-radius: 999px;
-    font-size: 14px;
-    text-decoration: none;
-    border: 1px solid transparent;
-    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-
-  .pwz-btn-primary {
-    background: #ff6f4c;
-    color: #fff;
-    box-shadow: 0 8px 20px rgba(255, 111, 76, 0.3);
-  }
-
-  .pwz-btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 12px 26px rgba(255, 111, 76, 0.4);
-  }
-
-  .pwz-btn-ghost {
-    background: #ffffff;
-    color: #444;
-    border-color: #ddd;
-  }
-
-  .pwz-btn-ghost:hover {
-    background: #f7f7f7;
-    transform: translateY(-1px);
-  }
-
-  .pwz-card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-  }
-
-  .pwz-card {
-    background: #ffffff;
-    border-radius: 18px;
-    padding: 20px 18px 22px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    border: 1px solid #f0e9ff;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 14px;
-    line-height: 1.6;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .pwz-card-icon {
-    font-size: 26px;
-    margin-bottom: 6px;
-  }
-
-  .pwz-card h2 {
-    font-size: 18px;
-    margin: 0 0 4px;
-  }
-
-  .pwz-card p {
-    margin: 0;
-    color: #444;
-  }
-
-  .pwz-highlight {
-    font-weight: 500;
-  }
-
-  .pwz-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top left, rgba(255, 111, 76, 0.06), transparent 55%);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    pointer-events: none;
-  }
-
-  .pwz-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.06);
-  }
-
-  .pwz-card:hover::after {
-    opacity: 1;
-  }
-
-  .pwz-booking-strip {
-    margin-top: 48px;
-    padding: 18px 20px;
-    border-radius: 18px;
-    background: #fff6ef;
-    border: 1px solid #ffe0c9;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-  }
-
-  .pwz-booking-strip h3 {
-    margin: 0 0 4px;
-    font-size: 18px;
-  }
-
-  .pwz-booking-strip p {
-    margin: 0;
-    font-size: 14px;
-    color: #555;
-  }
-
-  /* Scroll Reveal Animation (for hero, cards, booking strip) */
-  .pwz-reveal-scroll {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .pwz-reveal-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Sticky Bottom CTA */
-  .pwz-sticky-cta {
-    position: fixed;
-    bottom: 16px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    z-index: 1300;
-    pointer-events: none;
-  }
-
-  .pwz-sticky-cta a {
-    pointer-events: auto;
-    background: #ff6f4c;
-    color: #ffffff;
-    padding: 14px 26px;
-    border-radius: 999px;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 12px 30px rgba(255, 111, 76, 0.45);
-  }
-
-  /* Subtle tap effect for mobile cards */
-  @media (max-width: 900px) {
-    .pwz-card {
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .pwz-card:active {
-      transform: scale(0.97);
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.12);
-    }
-
-    .pwz-card-grid {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-  }
-
-  /* Mobile-specific adjustments */
-  @media (max-width: 600px) {
-    .pawzy-section {
-      padding: 70px 14px 100px;
-    }
-
-    .pwz-hero h1 {
-      font-size: 26px;
-    }
-
-    .pwz-hero-sub {
-      font-size: 15px;
-    }
-
-    .pwz-hero-list li {
-      font-size: 14px;
-    }
-
-    .pwz-cta-wrap {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .pwz-btn-primary,
-    .pwz-btn-ghost {
-      width: 100%;
-      text-align: center;
-      padding: 12px 16px;
-      font-size: 15px;
-    }
-
-    .pwz-booking-strip {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-
-    .pwz-booking-strip a {
-      width: 100%;
-      text-align: center;
-    }
-  }
-  /* Improve readability of feature cards on mobile */
-@media (max-width: 600px) {
-  .pwz-card h2 {
-    font-size: 20px !important;
-    line-height: 1.35;
-  }
-
-  .pwz-card p {
-    font-size: 16px !important;
-    line-height: 1.6;
-  }
-
-  .pwz-card {
-    padding: 22px 18px !important;
-  }
-}
-
-</style>
-
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const elements = document.querySelectorAll(".pwz-reveal-scroll");
 
-    const revealOnScroll = () => {
+    const reveal = () => {
       const trigger = window.innerHeight * 0.85;
-
       elements.forEach(el => {
-        const rect = el.getBoundingClientRect().top;
-        if (rect < trigger) {
+        if (el.getBoundingClientRect().top < trigger) {
           el.classList.add("visible");
         }
       });
     };
 
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll();
+    window.addEventListener("scroll", reveal);
+    reveal();
+  });
+
+  const toggle = document.getElementById("navToggle");
+  const menu = document.getElementById("navmenu");
+
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("show");
+  });
+
+  document.addEventListener("click", () => {
+    menu.classList.remove("show");
   });
 </script>
 
-
+</body>
+</html>
