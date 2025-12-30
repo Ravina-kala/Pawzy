@@ -1,243 +1,372 @@
-<!-- Sticky Mobile Header -->
-<header class="pwz-mobile-header">
-  <div class="pwz-logo">Pawzy 🐾</div>
-  <a class="pwz-header-cta" href="https://wa.me/+919152691665?text=Hi%20Pawzy%2C%20I%20want%20to%20Collaborate">
-    Partner With Us
-  </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Pawzy • Collaborate With Us</title>
+  <meta name="description" content="Collaborate with Pawzy and grow your pet-care business. Join a trusted network of pet-care partners." />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/pawzy-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/image/pawzy-favicon-192.png">
+  <meta name="theme-color" content="#68C07F" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Base ===== */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: #f5f7fa;
+      color: #111;
+    }
+
+    /* ===== Header (same as index.html) ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .brand-tag {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 0;
+    }
+
+    .nav-wrapper { position: relative; }
+
+    .nav-toggle {
+      font-size: 1.4rem;
+      cursor: pointer;
+      background: transparent;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: .4rem .6rem;
+    }
+
+    .nav-popup {
+      position: absolute;
+      top: 110%;
+      right: 0;
+      z-index: 999;
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 14px 18px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+      min-width: 220px;
+    }
+
+    .nav-list.show { display: flex; }
+
+    .nav-list a {
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
+    }
+
+    @media (min-width: 900px) {
+      .nav-wrapper:hover .nav-list { display: flex; }
+    }
+
+    /* ===== Page Styles ===== */
+    .pawzy-section {
+      padding: 90px 16px 100px;
+      background: linear-gradient(145deg, #fffdf7, #fdf8ff);
+    }
+
+    .pawzy-container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .glass-hero {
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(14px) saturate(180%);
+      border-radius: 28px;
+      padding: 32px 24px;
+      border: 1px solid rgba(255,255,255,0.6);
+      box-shadow: 0 10px 34px rgba(0,0,0,0.07);
+      margin-bottom: 48px;
+    }
+
+    .pwz-pill {
+      display: inline-block;
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: #f5f0ff;
+      border: 1px solid #e1d7ff;
+      margin-bottom: 12px;
+    }
+
+    .pwz-hero h1 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .pwz-hero-sub {
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 10px 0;
+      color: #444;
+    }
+
+    /* Text CTAs */
+    .cta-links {
+      margin-top: 20px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-links a {
+      color: #0b5ed7;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .cta-links a:hover { text-decoration: underline; }
+
+    /* Cards */
+    .pwz-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .pwz-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 20px 18px 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      border: 1px solid #f0e9ff;
+    }
+
+    .pwz-card h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .pwz-card p {
+      color: #444;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .pwz-highlight { font-weight: 600; }
+
+    @media (max-width: 900px) {
+      .pwz-card-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    /* Sticky CTA */
+    .pwz-sticky-cta {
+      position: fixed;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      z-index: 1500;
+      pointer-events: none;
+    }
+
+    .pwz-sticky-cta a {
+      pointer-events: auto;
+      background: #25D366;
+      color: #002;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    /* Scroll Reveal */
+    .pwz-reveal-scroll {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .pwz-reveal-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/index.html" class="brand">
+      <img src="image/pawzy-logo-optimized.webp" alt="Pawzy logo" class="logo">
+      <div>
+        <h1 class="brand-title">Pawzy</h1>
+        <p class="brand-tag">Complete pet care at your doorstep</p>
+      </div>
+    </a>
+
+    <div class="nav-wrapper">
+      <button id="navToggle" class="nav-toggle" aria-label="Menu">☰</button>
+      <nav class="nav-popup">
+        <ul id="navmenu" class="nav-list">
+          <li><a href="/index.html#services">Services</a></li>
+          <li><a href="/index.html#pricing">Pricing</a></li>
+          <li><a href="/index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </header>
 
-<!-- Collaborate With Us Section -->
 <section id="collaborate" class="pawzy-section">
   <div class="pawzy-container">
 
-    <!-- Hero / Glass Intro -->
     <div class="pwz-hero glass-hero pwz-reveal-scroll">
-
       <span class="pwz-pill">🤝🐾 Collaborate With Pawzy</span>
       <h1>Partner With Us – Grow Your Pet-Care Business</h1>
 
       <p class="pwz-hero-sub">
-        Are you a professional groomer, day boarder, pet caretaker, or someone passionate about offering 
-        high-quality pet services? Partner with Pawzy and expand your reach, grow your income, and become part 
-        of a trusted pet-care ecosystem loved by pet parents.
+        Are you a professional groomer, day boarder, pet caretaker, or someone passionate about offering
+        high-quality pet services? Partner with Pawzy and expand your reach, grow your income, and become
+        part of a trusted pet-care ecosystem.
       </p>
 
       <p class="pwz-hero-sub">
-        Whether you already have a grooming setup, boarding facility, or simply the passion and space to offer 
-        services, Pawzy helps you turn your skills into a sustainable, rewarding business. We bring you customers, 
-        support your operations, maintain service standards, and help you deliver an exceptional pet-care experience.
+        Pawzy helps you turn your skills into a sustainable, rewarding business by bringing customers,
+        supporting operations, and maintaining service standards.
       </p>
 
-      <p class="pwz-hero-sub">
-        Together, we can build a safe, reliable, and premium network of pet-care partners — ensuring pets receive 
-        the love and care they deserve, while you receive the growth and recognition you deserve. 🐶❤️
-      </p>
-
-      <div class="pwz-cta-wrap">
-        <a href="#partner-apply" class="pwz-btn-primary">Apply to Collaborate</a>
-        <a href="#partner-faq" class="pwz-btn-ghost">View FAQs</a>
+      <div class="cta-links">
+        <a href="#partner-apply">How to apply →</a>
+        <a href="/index.html#contact">Talk to us →</a>
       </div>
     </div>
 
-    <!-- Feature Cards -->
     <div class="pwz-card-grid">
 
-      <!-- Card 1 -->
       <article class="pwz-card pwz-reveal-scroll">
-        <h2>Grow Your Income With Steady Bookings</h2>
-        <p>
-          Pawzy connects you with pet parents actively seeking grooming, day boarding, walking, and care services. 
-          You focus on delivering great service — we handle the customer flow.
-        </p>
-        <p class="pwz-highlight">More visibility. More clients. More growth. 📈🐾</p>
+        <h2>Grow Your Income</h2>
+        <p>Steady bookings from pet parents actively seeking quality services.</p>
+        <p class="pwz-highlight">More clients. More growth. 📈</p>
       </article>
 
-      <!-- Card 2 -->
       <article class="pwz-card pwz-reveal-scroll">
-        <h2>Work With Flexibility & Support</h2>
-        <p>
-          Whether you have an existing setup or wish to start from home, Pawzy supports you with training, guidelines, 
-          scheduling help, customer communication, and standard operating procedures to ensure smooth service delivery.
-        </p>
-        <p class="pwz-highlight">Your skills + our system = a powerful partnership. 🤝</p>
+        <h2>Flexibility & Support</h2>
+        <p>Work independently with structured support, training, and guidance.</p>
+        <p class="pwz-highlight">Your skills + our system = success. 🤝</p>
       </article>
 
-      <!-- Card 3 -->
       <article class="pwz-card pwz-reveal-scroll">
-        <h2>Join a Trusted Pet-Care Network</h2>
-        <p>
-          As a Pawzy partner, you become part of a vetted, premium, responsible network where safety, cleanliness, 
-          professionalism, and kindness come first. Pet parents trust Pawzy — and that trust extends to you.
-        </p>
-        <p class="pwz-highlight">Be part of something bigger and impactful. 🌟</p>
+        <h2>Trusted Network</h2>
+        <p>Join a vetted, premium pet-care network trusted by families.</p>
+        <p class="pwz-highlight">Be part of something meaningful. 🌟</p>
       </article>
 
     </div>
 
-    <!-- Partner Application CTA -->
-    <div id="partner-apply" class="pwz-booking-strip pwz-reveal-scroll">
-      <div>
-        <h3>Ready to grow with Pawzy?</h3>
-        <p>Share your details and we’ll connect with you for onboarding.</p>
-      </div>
-      <a href="https://wa.me/+919152691665?text=Hi%20Pawzy%2C%20I%20want%20to%20become%20a%20partner" class="pwz-btn-primary">
-        Apply via WhatsApp
-      </a>
+    <div id="partner-apply" style="margin-top:48px; text-align:center;">
+      <h3>Ready to grow with Pawzy?</h3>
+      <p>Message us on WhatsApp and we’ll take it forward.</p>
     </div>
 
   </div>
 </section>
 
-<!-- Sticky Floating CTA -->
+<!-- Sticky CTA -->
 <div class="pwz-sticky-cta">
   <a href="https://wa.me/+919152691665?text=Hi%20Pawzy%2C%20I%20want%20to%20Collaborate">
     Collaborate With Pawzy 🤝🐾
   </a>
 </div>
 
-<!-- Shared Styles -->
-<style>
-  .pawzy-section {
-    padding: 90px 16px 100px;
-    background: linear-gradient(145deg, #fffdf7, #fdf8ff);
-  }
-
-  .pawzy-container { max-width:1080px; margin:0 auto; }
-
-  /* Sticky Header */
-  .pwz-mobile-header {
-    position: sticky; top:0; z-index:1200;
-    background:#ffffffdd; backdrop-filter:blur(12px);
-    padding:12px 18px; display:flex; justify-content:space-between;
-    border-bottom:1px solid #f0f0f0;
-  }
-
-  .pwz-logo { font-size:20px; font-weight:700; }
-
-  .pwz-header-cta {
-    background:#ff6f4c; padding:8px 16px; color:white;
-    border-radius:999px; text-decoration:none; font-size:14px;
-  }
-
-  /* Glass Hero */
-  .glass-hero {
-    background:rgba(255,255,255,0.65);
-    backdrop-filter:blur(14px) saturate(180%);
-    border:1px solid rgba(255,255,255,0.6);
-    border-radius:28px;
-    padding:32px 24px;
-    box-shadow:0 10px 34px rgba(0,0,0,0.07);
-    margin-bottom:48px;
-  }
-
-  .pwz-pill {
-    display:inline-block; font-size:13px; padding:6px 14px;
-    border-radius:999px; background:#f5f0ff; border:1px solid #e1d7ff;
-    margin-bottom:12px;
-  }
-
-  .pwz-hero h1 { font-size:32px; margin-bottom:12px; }
-  .pwz-hero-sub { font-size:15px; line-height:1.7; margin:10px 0; }
-
-  .pwz-cta-wrap { margin-top:20px; display:flex; gap:12px; flex-wrap:wrap; }
-
-  .pwz-btn-primary, .pwz-btn-ghost {
-    padding:10px 18px; border-radius:999px; display:flex;
-    justify-content:center; align-items:center;
-    text-decoration:none; font-size:14px;
-  }
-
-  .pwz-btn-primary {
-    background:#ff6f4c; color:white;
-    box-shadow:0 8px 20px rgba(255,111,76,0.3);
-  }
-  
-  .pwz-btn-ghost { background:white; border:1px solid #ddd; color:#444; }
-
-  /* Cards */
-  .pwz-card-grid {
-    display:grid; gap:24px;
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .pwz-card {
-    background:white; border-radius:18px;
-    padding:20px 18px 22px;
-    border:1px solid #f0e9ff;
-    box-shadow:0 10px 30px rgba(0,0,0,0.04);
-    transition:0.2s ease;
-  }
-
-  .pwz-card h2 { font-size:18px; margin-bottom:8px; }
-  .pwz-card p { margin-bottom:6px; color:#444; }
-  .pwz-highlight { font-weight:600; }
-
-  .pwz-card:hover {
-    transform:translateY(-4px);
-    box-shadow:0 14px 32px rgba(0,0,0,0.06);
-  }
-
-  /* Mobile Tap Effect */
-  @media (max-width:900px) {
-    .pwz-card:active { transform:scale(0.97); box-shadow:0 6px 22px rgba(0,0,0,0.12); }
-    .pwz-card-grid { grid-template-columns:1fr; gap:28px; }
-  }
-
-  /* Booking Strip */
-  .pwz-booking-strip {
-    margin-top:48px; padding:18px 20px;
-    background:#fff6ef; border:1px solid #ffe0c9;
-    border-radius:18px;
-    display:flex; justify-content:space-between;
-    align-items:center; flex-wrap:wrap; gap:14px;
-  }
-
-  /* Sticky CTA Bottom */
-  .pwz-sticky-cta {
-    position:fixed; bottom:16px; width:100%;
-    display:flex; justify-content:center;
-    pointer-events:none; z-index:1500;
-  }
-
-  .pwz-sticky-cta a {
-    pointer-events:auto;
-    background:#ff6f4c; color:white;
-    padding:14px 26px; border-radius:999px;
-    text-decoration:none; font-size:16px; font-weight:600;
-    box-shadow:0 12px 30px rgba(255,111,76,0.45);
-  }
-
-  /* Scroll Reveal */
-  .pwz-reveal-scroll {
-    opacity:0; transform:translateY(20px);
-    transition:all 0.7s ease;
-  }
-  .pwz-reveal-scroll.visible {
-    opacity:1; transform:translateY(0);
-  }
-
-  /* Mobile */
-  @media (max-width:600px) {
-    .pawzy-section { padding:70px 12px 100px; }
-    .pwz-hero h1 { font-size:26px; }
-    .pwz-booking-strip { flex-direction:column; }
-    .pwz-booking-strip a { width:100%; }
-    .pwz-btn-primary, .pwz-btn-ghost { width:100%; }
-  }
-</style>
-
-<!-- Scroll Reveal Script -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll(".pwz-reveal-scroll");
-  const reveal = () => {
-    const trigger = window.innerHeight * 0.85;
-    elements.forEach(el => {
-      if (el.getBoundingClientRect().top < trigger) el.classList.add("visible");
-    });
-  };
-  window.addEventListener("scroll", reveal);
-  reveal();
-});
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".pwz-reveal-scroll");
+
+    const reveal = () => {
+      const trigger = window.innerHeight * 0.85;
+      elements.forEach(el => {
+        if (el.getBoundingClientRect().top < trigger) {
+          el.classList.add("visible");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", reveal);
+    reveal();
+  });
+
+  const toggle = document.getElementById("navToggle");
+  const menu = document.getElementById("navmenu");
+
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("show");
+  });
+
+  document.addEventListener("click", () => {
+    menu.classList.remove("show");
+  });
 </script>
 
+</body>
+</html>
