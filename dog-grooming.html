@@ -1,241 +1,336 @@
-<!-- Sticky Mobile Header -->
-<header class="pwz-mobile-header">
-  <div class="pwz-logo">Pawzy 🐾</div>
-  <a class="pwz-header-cta" href="https://wa.me/+919152691665?text=Hi%20Pawzy%2C%20I%20want%20Grooming%20at%20Home">
-    Book Grooming
-  </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Pawzy • Grooming at Home</title>
+  <meta name="description" content="Pawzy Grooming at Home — professional, stress-free pet grooming at your doorstep." />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/pawzy-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/image/pawzy-favicon-192.png">
+  <meta name="theme-color" content="#68C07F" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Base ===== */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: #f5f7fa;
+      color: #111;
+    }
+
+    /* ===== Header (same as index.html) ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .brand-tag {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 0;
+    }
+
+    .nav-wrapper { position: relative; }
+
+    .nav-toggle {
+      font-size: 1.4rem;
+      cursor: pointer;
+      background: transparent;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: .4rem .6rem;
+    }
+
+    .nav-popup {
+      position: absolute;
+      top: 110%;
+      right: 0;
+      z-index: 999;
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 14px 18px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+      min-width: 220px;
+    }
+
+    .nav-list.show { display: flex; }
+
+    .nav-list a {
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
+    }
+
+    @media (min-width: 900px) {
+      .nav-wrapper:hover .nav-list { display: flex; }
+    }
+
+    /* ===== Page styles (existing, trimmed) ===== */
+    .pawzy-section {
+      padding: 90px 16px 100px;
+      background: linear-gradient(145deg, #fffdf7, #fdf8ff);
+    }
+
+    .pawzy-container { max-width:1080px; margin:0 auto; }
+
+    .glass-hero {
+      background:rgba(255,255,255,0.65);
+      backdrop-filter:blur(14px) saturate(180%);
+      border-radius:28px;
+      padding:32px 24px;
+      border:1px solid rgba(255,255,255,0.6);
+      box-shadow:0 10px 34px rgba(0,0,0,0.07);
+      margin-bottom:48px;
+    }
+
+    .pwz-pill {
+      display:inline-block;
+      font-size:13px;
+      padding:6px 14px;
+      border-radius:999px;
+      background:#f5f0ff;
+      border:1px solid #e1d7ff;
+      margin-bottom:12px;
+    }
+
+    .pwz-hero h1 { font-size:32px; margin-bottom:12px; }
+    .pwz-hero-sub { font-size:15px; line-height:1.7; margin:10px 0; }
+
+    /* Text CTAs instead of buttons */
+    .cta-links {
+      margin-top: 20px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-links a {
+      color: #0b5ed7;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .cta-links a:hover { text-decoration: underline; }
+
+    /* Cards */
+    .pwz-card-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .pwz-card {
+      background:white;
+      border-radius:18px;
+      padding:20px 18px 22px;
+      border:1px solid #f0e9ff;
+      box-shadow:0 10px 30px rgba(0,0,0,0.04);
+    }
+
+    .pwz-card h2 { font-size:18px; margin-bottom:8px; }
+    .pwz-card p { color:#444; margin-bottom:6px; }
+    .pwz-highlight { font-weight:600; }
+
+    @media (max-width:900px) {
+      .pwz-card-grid { grid-template-columns:1fr; gap:28px; }
+    }
+
+    /* Sticky CTA (kept) */
+    .pwz-sticky-cta {
+      position:fixed;
+      bottom:16px;
+      width:100%;
+      display:flex;
+      justify-content:center;
+      z-index:1500;
+      pointer-events:none;
+    }
+
+    .pwz-sticky-cta a {
+      pointer-events:auto;
+      background:#25D366;
+      color:#002;
+      padding:14px 26px;
+      border-radius:999px;
+      text-decoration:none;
+      font-size:16px;
+      font-weight:600;
+      box-shadow:0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    /* Scroll Reveal */
+    .pwz-reveal-scroll {
+      opacity:0;
+      transform:translateY(20px);
+      transition:all 0.7s ease;
+    }
+    .pwz-reveal-scroll.visible {
+      opacity:1;
+      transform:none;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/index.html" class="brand">
+      <img src="image/pawzy-logo-optimized.webp" alt="Pawzy logo" class="logo">
+      <div>
+        <h1 class="brand-title">Pawzy</h1>
+        <p class="brand-tag">Complete pet care at your doorstep</p>
+      </div>
+    </a>
+
+    <div class="nav-wrapper">
+      <button id="navToggle" class="nav-toggle" aria-label="Menu">☰</button>
+      <nav class="nav-popup">
+        <ul id="navmenu" class="nav-list">
+          <li><a href="/index.html#services">Services</a></li>
+          <li><a href="/index.html#pricing">Pricing</a></li>
+          <li><a href="/index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </header>
 
-<!-- Grooming at Home Section -->
 <section id="grooming-home" class="pawzy-section">
   <div class="pawzy-container">
 
-    <!-- Hero / Intro (Glass + Animation) -->
     <div class="pwz-hero glass-hero pwz-reveal-scroll">
       <span class="pwz-pill">🛁🐶 Grooming at Home • Bath • Brush • Nails • Ear Cleaning</span>
       <h1>Professional Grooming at Your Doorstep</h1>
 
       <p class="pwz-hero-sub">
-        At Pawzy, we bring professional pet grooming right to your doorstep, ensuring your dog enjoys a 
+        At Pawzy, we bring professional pet grooming right to your doorstep, ensuring your dog enjoys a
         stress-free, comfortable, and hygienic grooming experience in the safety of their own home.
-        Our Grooming at Home Session includes a refreshing bath with gentle pet-friendly shampoos, followed
-        by a thorough brushing to remove loose fur, reduce shedding, and keep the coat smooth and shiny.
       </p>
 
       <p class="pwz-hero-sub">
-        We carefully trim your dog’s nails using safe, pet-approved tools to avoid discomfort and maintain
-        proper paw health. Our session also includes deep ear cleaning to prevent wax build-up, infections,
-        and foul odour — all done with extreme care and patience.
+        Every grooming session is customised to your dog’s breed, coat type, and temperament so they
+        stay calm, happy, and relaxed throughout.
       </p>
 
-      <p class="pwz-hero-sub">
-        Every grooming session is customised to your dog’s breed, coat type, and temperament to ensure they 
-        stay calm, happy, and relaxed throughout. No travel, no waiting, no stress — just professional 
-        grooming, complete hygiene, and full comfort delivered right at your home. With Pawzy, your pet gets 
-        the care they deserve, and you get the convenience you’ll love. 🐾✨
-      </p>
-
-      <div class="pwz-cta-wrap">
-        <a href="#grooming-home-booking" class="pwz-btn-primary">Book Grooming</a>
-        <a href="#grooming-faq" class="pwz-btn-ghost">View FAQs</a>
+      <div class="cta-links">
+        <a href="#grooming-home-booking">How it works →</a>
+        <a href="/index.html#contact">Talk to us →</a>
       </div>
     </div>
 
-    <!-- Feature Cards -->
     <div class="pwz-card-grid">
-
-      <!-- Card 1: Bath + Brush -->
       <article class="pwz-card pwz-reveal-scroll">
         <h2>Bath & Brushing</h2>
-        <p>
-          Your dog enjoys a refreshing bath with gentle, pet-friendly shampoos followed by a complete brushing 
-          session to remove loose fur, reduce shedding, prevent tangles, and keep their coat soft, shiny, and healthy.
-        </p>
-        <p class="pwz-highlight">Perfect for hygiene, coat health, and shedding control. 🛁✨</p>
+        <p>Gentle shampoos and complete brushing for coat health and hygiene.</p>
       </article>
 
-      <!-- Card 2: Nails & Ear Cleaning -->
       <article class="pwz-card pwz-reveal-scroll">
-        <h2>Nail Trimming & Ear Cleaning</h2>
-        <p>
-          We trim your dog’s nails using safe, pet-approved tools to avoid discomfort, maintain paw health, and 
-          prevent long-term posture issues. We also perform deep ear cleaning to prevent wax build-up, infections, 
-          foul odour, and irritation — all handled with patience and care.
-        </p>
-        <p class="pwz-highlight">Healthy paws + clean ears = one happy dog. 🐾🧼</p>
+        <h2>Nail & Ear Care</h2>
+        <p>Safe nail trimming and deep ear cleaning with patience and care.</p>
       </article>
 
-      <!-- Card 3: Stress-Free Home Grooming -->
       <article class="pwz-card pwz-reveal-scroll">
-        <h2>Stress-Free Home Experience</h2>
-        <p>
-          Grooming is done in the comfort of your home — no travel, no noise, and no waiting. Sessions are fully 
-          customised to your dog’s breed, coat type, age, temperament, and comfort level so they stay calm, relaxed, 
-          and happy throughout.
-        </p>
-        <p class="pwz-highlight">Professional care + home comfort = total peace. 🧴🏡</p>
+        <h2>Stress-Free Home Grooming</h2>
+        <p>No travel, no waiting — professional grooming in familiar surroundings.</p>
       </article>
-
     </div>
 
-    <!-- Booking CTA -->
-    <div id="grooming-home-booking" class="pwz-booking-strip pwz-reveal-scroll">
-      <div>
-        <h3>Ready to pamper your dog with a home grooming session?</h3>
-        <p>Share your location and preferred time slot — we’ll confirm instantly.</p>
-      </div>
-      <a href="https://wa.me/+919152691665?text=Hi%20Pawzy%2C%20I%20want%20Grooming%20at%20Home" class="pwz-btn-primary">
-        WhatsApp to Book
-      </a>
+    <div id="grooming-home-booking" style="margin-top:48px; text-align:center;">
+      <h3>Ready to pamper your dog with a home grooming session?</h3>
+      <p>Message us on WhatsApp and we’ll confirm availability.</p>
     </div>
 
   </div>
 </section>
 
-<!-- Sticky Floating CTA -->
+<!-- Sticky CTA -->
 <div class="pwz-sticky-cta">
-  <a href="https://wa.me/+919152691665?text=Hi%20Pawzy%2C%20Book%20Grooming%20at%20Home">
+  <a href="https://wa.me/+919152691665?text=Hi%20Pawzy%2C%20I%20want%20Grooming%20at%20Home">
     Book Grooming at Home 🛁🐶
   </a>
 </div>
 
-<!-- Styles (same design system as Dog Walking page) -->
-<style>
-  .pawzy-section {
-    padding: 90px 16px 100px;
-    background: linear-gradient(145deg, #fffdf7, #fdf8ff);
-  }
-
-  .pawzy-container { max-width: 1080px; margin: 0 auto; }
-
-  /* Sticky Header */
-  .pwz-mobile-header {
-    position: sticky; top:0; z-index:1200;
-    background:#ffffffdd; backdrop-filter:blur(12px);
-    padding:12px 18px; display:flex; justify-content:space-between;
-    border-bottom:1px solid #f0f0f0;
-  }
-
-  .pwz-logo { font-size:20px; font-weight:700; }
-
-  .pwz-header-cta {
-    background:#ff6f4c; color:#fff; padding:8px 16px;
-    border-radius:999px; text-decoration:none; font-size:14px;
-  }
-
-  /* Glass Hero */
-  .glass-hero {
-    background:rgba(255,255,255,0.65);
-    backdrop-filter:blur(14px) saturate(180%);
-    border-radius:28px; padding:32px 24px;
-    border:1px solid rgba(255,255,255,0.6);
-    box-shadow:0 10px 34px rgba(0,0,0,0.07);
-    margin-bottom:48px;
-  }
-
-  .pwz-pill {
-    display:inline-block; font-size:13px;
-    padding:6px 14px; border-radius:999px;
-    background:#f5f0ff; border:1px solid #e1d7ff;
-    margin-bottom:12px;
-  }
-
-  .pwz-hero h1 { font-size:32px; margin-bottom:12px; }
-  .pwz-hero-sub { font-size:15px; line-height:1.7; margin:10px 0; }
-
-  .pwz-hero-list { padding:0; margin:16px 0; list-style:none; }
-  .pwz-hero-list li { margin-bottom:6px; }
-
-  .pwz-cta-wrap { margin-top:20px; display:flex; gap:12px; flex-wrap:wrap; }
-
-  .pwz-btn-primary, .pwz-btn-ghost {
-    padding:10px 18px; border-radius:999px; text-decoration:none;
-    display:flex; justify-content:center; align-items:center;
-    font-size:14px; border:1px solid transparent; cursor:pointer;
-  }
-  .pwz-btn-primary {
-    background:#ff6f4c; color:#fff;
-    box-shadow:0 8px 20px rgba(255,111,76,0.3);
-  }
-  .pwz-btn-ghost { background:white; border:1px solid #ddd; color:#444; }
-
-  /* Cards */
-  .pwz-card-grid {
-    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
-  }
-
-  .pwz-card {
-    background:white; border-radius:18px;
-    padding:20px 18px 22px;
-    border:1px solid #f0e9ff;
-    box-shadow:0 10px 30px rgba(0,0,0,0.04);
-    transition:0.2s ease;
-  }
-
-  .pwz-card h2 { font-size:18px; margin-bottom:8px; }
-  .pwz-card p { color:#444; margin:0 0 6px; }
-  .pwz-highlight { font-weight:600; }
-
-  .pwz-card:hover { transform:translateY(-4px); box-shadow:0 14px 32px rgba(0,0,0,0.06); }
-
-  /* Tap effect on mobile */
-  @media (max-width:900px) {
-    .pwz-card:active { transform:scale(0.97); box-shadow:0 6px 22px rgba(0,0,0,0.12); }
-    .pwz-card-grid { grid-template-columns:1fr; gap:28px; }
-  }
-
-  /* Booking Strip */
-  .pwz-booking-strip {
-    margin-top:48px; padding:18px 20px;
-    border-radius:18px; border:1px solid #ffe0c9;
-    background:#fff6ef; display:flex; justify-content:space-between;
-    align-items:center; flex-wrap:wrap; gap:12px;
-  }
-
-  /* Sticky CTA Bottom */
-  .pwz-sticky-cta {
-    position:fixed; bottom:16px; width:100%;
-    display:flex; justify-content:center; z-index:1400; pointer-events:none;
-  }
-
-  .pwz-sticky-cta a {
-    pointer-events:auto; background:#ff6f4c; color:white;
-    padding:14px 26px; border-radius:999px;
-    font-size:16px; font-weight:600; text-decoration:none;
-    box-shadow:0 12px 30px rgba(255,111,76,0.45);
-  }
-
-  /* Scroll Reveal */
-  .pwz-reveal-scroll {
-    opacity:0; transform:translateY(20px);
-    transition:all 0.7s ease;
-  }
-  .pwz-reveal-scroll.visible {
-    opacity:1; transform:translateY(0);
-  }
-
-  /* Mobile Adjustments */
-  @media (max-width:600px) {
-    .pawzy-section { padding:70px 12px 100px; }
-    .pwz-hero h1 { font-size:26px; }
-    .pwz-booking-strip { flex-direction:column; align-items:flex-start; }
-    .pwz-booking-strip a { width:100%; }
-    .pwz-btn-primary, .pwz-btn-ghost { width:100%; }
-  }
-</style>
-
-<!-- Scroll Reveal Script -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll(".pwz-reveal-scroll");
-  const reveal = () => {
-    const point = window.innerHeight * 0.85;
-    elements.forEach(el => {
-      if (el.getBoundingClientRect().top < point) el.classList.add("visible");
-    });
-  };
-  window.addEventListener("scroll", reveal);
-  reveal();
-});
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".pwz-reveal-scroll");
+    const reveal = () => {
+      const point = window.innerHeight * 0.85;
+      elements.forEach(el => {
+        if (el.getBoundingClientRect().top < point) el.classList.add("visible");
+      });
+    };
+    window.addEventListener("scroll", reveal);
+    reveal();
+  });
+
+  const toggle = document.getElementById("navToggle");
+  const menu = document.getElementById("navmenu");
+
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("show");
+  });
+
+  document.addEventListener("click", () => {
+    menu.classList.remove("show");
+  });
 </script>
 
+</body>
+</html>
