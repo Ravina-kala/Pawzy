@@ -52,7 +52,8 @@
   .brand-title{font-size:1.25rem;font-weight:700}
   .brand-tag{font-size:.9rem;color:var(--muted)}
 
-  /* Mobile Burger Menu */
+  /* old codes  navigation burger issues start*/
+  /* /* Mobile Burger Menu */
    .nav-list {
      flex-direction: column;
      background: white;
@@ -74,7 +75,56 @@
   .nav-list{list-style:none;margin:0;padding:0;display:none;gap:18px}
   .nav-list a{color:var(--ink);text-decoration:none;font-weight:600;opacity:.9}
   .nav-list a:hover{opacity:1}
-  @media (min-width:900px){.nav-toggle{display:none}.nav-list{display:flex}}
+  @media (min-width:900px){.nav-toggle{display:none}.nav-list{display:flex}} */
+
+  /* updating codes to fix navigation burger issues start*/
+  .nav-wrapper {
+  position: relative;
+}
+
+/* Burger always visible */
+.nav-toggle {
+  font-size: 1.4rem;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: .4rem .6rem;
+}
+
+/* Popup container */
+.nav-popup {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  z-index: 999;
+}
+
+/* Menu itself */
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 14px 18px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 220px;
+}
+
+/* Visible state */
+.nav-list.show {
+  display: flex;
+}
+
+  @media (min-width: 900px) {
+  .nav-wrapper:hover .nav-list {
+    display: flex;
+  }
+}
+/* updating codes to fix navigation burger issues end*/
   
   .lang-switch select{background:#0b1220;border:1px solid #334155;color:var(--ink);border-radius:10px;padding:.4rem .6rem}
   
@@ -280,21 +330,21 @@
         </div>
       </div>
 
-     <button id="navToggle" class="nav-toggle">☰</button>
-     
-     <nav class="nav">
-        
-        <ul id="navmenu" class="nav-list">
-          <li><a href="#services" data-i18n="nav_services">Services</a></li>
-          <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
-          <li><a href="#why" data-i18n="nav_why">Why Us</a></li>
-          <li><a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a></li>
-          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
-          <li><a href="/collaborate.html">Collaborate</a></li>
-          <li><a href="/hiring.html">We Are Hiring</a></li>
-
-        </ul>
-      </nav>
+     <div class="nav-wrapper">
+        <button id="navToggle" class="nav-toggle" aria-label="Menu">☰</button>
+      
+        <nav class="nav-popup">
+          <ul id="navmenu" class="nav-list">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#why">Why Us</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="/collaborate.html">Collaborate</a></li>
+            <li><a href="/hiring.html">We Are Hiring</a></li>
+          </ul>
+        </nav>
+      </div>
       
     </div>
   </header>
@@ -529,10 +579,26 @@
   });
 </script>
 
-
-<script>
+<!-- Nav toggle earlier script -->
+<!-- <script>
   document.getElementById("navToggle").addEventListener("click", () => {
     document.getElementById("navmenu").classList.toggle("show");
+  });
+</script> -->
+
+ <!-- Nav toggle new script -->
+ <script>
+  const toggle = document.getElementById("navToggle");
+  const menu = document.getElementById("navmenu");
+
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("show");
+  });
+
+  // close when clicking outside (mobile)
+  document.addEventListener("click", () => {
+    menu.classList.remove("show");
   });
 </script>
 
