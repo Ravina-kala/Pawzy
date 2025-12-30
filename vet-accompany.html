@@ -1,11 +1,65 @@
-<!-- Sticky Mobile Header -->
-<header class="pwz-mobile-header">
-  <div class="pwz-logo">Pawzy 🐾</div>
-  <a class="pwz-header-cta" href="https://wa.me/+919152691665?text=Hi%20Pawzy%2C%20I%20want%20Vet%20Accompany%20Service">
-    Book Vet Visit
-  </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Pawzy • Vet Accompany</title>
+  <meta name="description" content="Pawzy Vet Accompany service — we take your pet to the vet, manage queues, and keep you updated." />
+
+  <!-- Favicons (same as index.html) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/pawzy-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/image/pawzy-favicon-192.png">
+  <meta name="theme-color" content="#68C07F" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared styles (you can later move this to common.css) -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: #f5f7fa;
+      color: #111;
+    }
+    .container {
+      width: min(720px, 92%);
+      margin: 0 auto;
+    }
+    main {
+      padding: 32px 0 80px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/index.html" class="brand">
+      <img src="image/pawzy-logo-optimized.webp" alt="Pawzy logo" class="logo">
+      <div>
+        <h1 class="brand-title">Pawzy</h1>
+        <p class="brand-tag">Complete pet care at your doorstep</p>
+      </div>
+    </a>
+
+    <div class="nav-wrapper">
+      <button id="navToggle" class="nav-toggle" aria-label="Menu">☰</button>
+      <nav class="nav-popup">
+        <ul id="navmenu" class="nav-list">
+          <li><a href="/index.html#services">Services</a></li>
+          <li><a href="/index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </header>
 
+<main>
 <!-- Vet Accompany Section -->
 <section id="vet-accompany" class="pawzy-section">
   <div class="pawzy-container">
@@ -117,21 +171,7 @@
 
   .pawzy-container { max-width:1080px; margin:0 auto; }
 
-  /* Sticky Header */
-  .pwz-mobile-header {
-    position: sticky; top: 0; z-index: 1200;
-    background:#ffffffdd; backdrop-filter:blur(12px);
-    padding:12px 18px; display:flex; justify-content:space-between;
-    border-bottom:1px solid #f0f0f0;
-  }
-
-  .pwz-logo { font-size:20px; font-weight:700; }
-
-  .pwz-header-cta {
-    background:#ff6f4c; color:white; padding:8px 16px;
-    border-radius:999px; text-decoration:none; font-size:14px;
-  }
-
+  
   /* Glass Hero */
   .glass-hero {
     background:rgba(255,255,255,0.65);
@@ -233,7 +273,7 @@
     .pwz-btn-primary, .pwz-btn-ghost { width:100%; }
   }
 </style>
-
+</main>
 <!-- Scroll Reveal Script -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -248,4 +288,21 @@ document.addEventListener("DOMContentLoaded", () => {
   reveal();
 });
 </script>
+
+<script>
+  const toggle = document.getElementById("navToggle");
+  const menu = document.getElementById("navmenu");
+
+  toggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("show");
+  });
+
+  document.addEventListener("click", () => {
+    menu.classList.remove("show");
+  });
+</script>
+
+</body>
+</html>
 
