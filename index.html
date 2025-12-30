@@ -52,30 +52,21 @@
   .brand-title{font-size:1.25rem;font-weight:700}
   .brand-tag{font-size:.9rem;color:var(--muted)}
 
-  /* old codes  navigation burger issues start*/
-  /* Mobile Burger Menu */
-   /* .nav-list {
-     flex-direction: column;
-     background: white;
-     padding: 16px;
-     border-radius: 12px;
-     margin-top: 12px;
-   }
-   
-   .nav-list.show {
-     display: flex !important;
-   }
-   
-   .nav-toggle {
-     font-size: 1.4rem;
-     cursor: pointer;
-   }
+  .card-clickable {
+  position: relative;
+}
+/* Adding CSS for clickable cards */
+.card-more {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #e8a56c; /* brand color */
+}
 
-  .nav-toggle{display:inline-flex;background:transparent;color:var(--ink);border:1px solid #334155;border-radius:10px;padding:.4rem .6rem}
-  .nav-list{list-style:none;margin:0;padding:0;display:none;gap:18px}
-  .nav-list a{color:var(--ink);text-decoration:none;font-weight:600;opacity:.9}
-  .nav-list a:hover{opacity:1}
-  @media (min-width:900px){.nav-toggle{display:none}.nav-list{display:flex}} */
+.card-clickable:hover .card-more {
+  text-decoration: underline;
+}
+
 
   /* updating codes to fix navigation burger issues start*/
   .nav-wrapper {
@@ -385,12 +376,14 @@
         </a>
 
         <a href="/dog-grooming.html" class="card-link">
-         <article class="card">
-           <img src="image/dog-grooming-optimized.webp" alt="Dog grooming" loading="lazy" />
-           <h4 data-i18n="svc_groom_title">Grooming at Home</h4>
-           <p data-i18n="svc_groom_text">Bath, brush, nails, and ear cleaning at your doorstep.</p>
-         </article>
+          <article class="card card-clickable">
+            <img src="image/dog-grooming-optimized.webp" alt="Dog grooming" loading="lazy" />
+            <h4>Grooming at Home</h4>
+            <p>Bath, brush, nails, and ear cleaning at your doorstep.</p>
+            <p class="card-more">Learn more →</p>
+          </article>
         </a>
+
 
         <a href="/day-boarding.html" class="card-link">
          <article class="card">
